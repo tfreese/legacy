@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.freese.legacy.osgi</groupId>
+        <artifactId>osgi</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>osgi-service-impl</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.groupId} - ${project.artifactId}</name>
+    <description>OSGI-Beispiel (impl)</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <!--manifestFile>${basedir}/META-INF/MANIFEST.MF</manifestFile-->
+                        <!--manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile-->
+                        <manifestEntries>
+                            <Bundle-Version>${project.version}</Bundle-Version>
+                            <Bundle-Name>${project.artifactId}</Bundle-Name>
+                            <Bundle-Description>${project.description}</Bundle-Description>
+                            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                            <Bundle-Vendor>${project.organization.name}</Bundle-Vendor>
+
+                            <Require-Bundle>${project.groupId}.service.api;version="1.0.0", slf4j-api</Require-Bundle>
+                            <Import-Package>org.osgi.framework, org.slf4j, ${project.groupId}.service.api</Import-Package>
+                            <Export-Package>${project.groupId}.service.impl;version="1.0.0"</Export-Package>
+                            <Private-Package>${project.groupId}.service</Private-Package>
+                            <Bundle-Activator>de.freese.osgi.service.impl.Activator</Bundle-Activator>
+
+                            <!--Export-Package>!org.postgres</Export-Package-->
+                            <!--Bundle-ManifestVersion>${project.version}</Bundle-ManifestVersion-->
+                            <!--Bundle-RequiredExecutionEnvironment>JavaSE-1.8</Bundle-RequiredExecutionEnvironment-->
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- compile scope -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>osgi-service-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+        </dependency-->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${version:org.osgi:org.osgi.core}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version:org.slf4j:slf4j}</version>
+        </dependency>
+
+        <!-- runtime scope -->
+        <!-- provided scope -->
+        <!-- test scope -->
+    </dependencies>
+
+</project>
