@@ -92,7 +92,7 @@ public class YahooProvider implements Runnable
 
     /**
      * Reads data from Yahoo! for each symbol.
-     * 
+     *
      * @param symbol String
      */
     private void readSymbolData(final String symbol)
@@ -162,7 +162,7 @@ public class YahooProvider implements Runnable
                 // for change percent
                 if (Math.abs(changePercent.doubleValue()) > 50)
                 {
-                    changePercent = new Double(Double.NaN);
+                    changePercent = Double.NaN;
                 }
             }
 

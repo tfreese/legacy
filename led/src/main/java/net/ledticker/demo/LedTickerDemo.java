@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -444,7 +445,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
 
         this.tickerFrame.pack();
         centerFrame(this.tickerFrame);
-        this.tickerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.tickerFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.tickerFrame.setVisible(true);
     }
 
@@ -491,7 +492,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
 
         for (int i = this.slider.getMinimum(); i <= this.slider.getMaximum(); i++)
         {
-            labels.put(new Integer(i), new JLabel(String.valueOf(i)));
+            labels.put(i, new JLabel(String.valueOf(i)));
         }
         this.slider.setLabelTable(labels);
 

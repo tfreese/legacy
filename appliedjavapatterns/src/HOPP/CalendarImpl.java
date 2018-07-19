@@ -39,7 +39,7 @@ public class CalendarImpl implements Calendar
 
     /**
      * Creates a new {@link CalendarImpl} object.
-     * 
+     *
      * @param filename String
      */
     @SuppressWarnings("unchecked")
@@ -95,7 +95,7 @@ public class CalendarImpl implements Calendar
     public List<Appointment> getAppointments(final Date date)
     {
         List<Appointment> returnValue = null;
-        Long appointmentKey = new Long(date.getTime());
+        Long appointmentKey = date.getTime();
 
         if (this.appointmentCalendar.containsKey(appointmentKey))
         {

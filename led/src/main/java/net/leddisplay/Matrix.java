@@ -647,55 +647,49 @@ public class Matrix
             case 0: // '\0'
                 point.x = (this.left + ((i1 - k1 - this.right - this.left) / 2)) * (this.dotWidth + this.hGap);
                 point.y = (this.top + ((j1 - byte0 - this.top - this.bottom) / 2)) * (this.dotHeight + this.vGap);
-
                 break;
 
             case 1: // '\001'
                 point.x = (this.left + ((i1 - k1 - this.right - this.left) / 2)) * (this.dotWidth + this.hGap);
                 point.y = this.top * (this.dotHeight + this.vGap);
-
                 break;
 
             case 4: // '\004'
                 point.x = (this.left + ((i1 - k1 - this.right - this.left) / 2)) * (this.dotWidth + this.hGap);
                 point.y = (j1 - byte0 - this.bottom) * (this.dotHeight + this.vGap);
-
                 break;
 
             case 3: // '\003'
                 point.x = ((i1 - k1 - this.right) + 1) * (this.dotWidth + this.hGap);
                 point.y = (this.top + ((j1 - byte0 - this.top - this.bottom) / 2)) * (this.dotHeight + this.vGap);
-
                 break;
 
             case 2: // '\002'
                 point.x = this.left * (this.dotWidth + this.hGap);
                 point.y = (this.top + ((j1 - byte0 - this.top - this.bottom) / 2)) * (this.dotHeight + this.vGap);
-
                 break;
 
             case 6: // '\006'
                 point.x = ((i1 - k1 - this.right) + 1) * (this.dotWidth + this.hGap);
                 point.y = this.top * (this.dotHeight + this.vGap);
-
                 break;
 
             case 5: // '\005'
                 point.x = this.left * (this.dotWidth + this.hGap);
                 point.y = this.top * (this.dotHeight + this.vGap);
-
                 break;
 
             case 8: // '\b'
                 point.x = ((i1 - k1 - this.right) + 1) * (this.dotWidth + this.hGap);
                 point.y = (j1 - byte0 - this.bottom) * (this.dotHeight + this.vGap);
-
                 break;
 
             case 7: // '\007'
                 point.x = this.left * (this.dotWidth + this.hGap);
                 point.y = (j1 - byte0 - this.bottom) * (this.dotHeight + this.vGap);
+                break;
 
+            default:
                 break;
         }
 
