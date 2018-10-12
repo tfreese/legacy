@@ -20,6 +20,7 @@ public class RunPattern
      * @param arguments String[]
      * @throws RemoteException Falls was schief geht.
      */
+    @SuppressWarnings("unused")
     public static void main(final String[] arguments) throws RemoteException
     {
         System.out.println("Example for the WorkerThread pattern");

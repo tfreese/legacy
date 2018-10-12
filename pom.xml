@@ -32,7 +32,7 @@
     </scm>
 
     <modules>
-        <module>annotation-procesing</module>
+        <!--module>annotation-procesing</module-->
         <module>appliedjavapatterns</module>
         <module>cdi-weld</module>
         <module>docbook</module>
@@ -74,7 +74,6 @@
             </activation>
             <properties>
                 <jar.tools>${env.JAVA_HOME}/lib/tools.jar</jar.tools>
-                <!--jar.tools>D:/jdk1.8.0_92-64bit/lib//tools.jar</jar.tools-->
             </properties>
         </profile>
         <profile>

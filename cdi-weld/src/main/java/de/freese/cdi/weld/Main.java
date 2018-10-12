@@ -22,21 +22,24 @@ public class Main
     public static void main(final String[] args)
     {
         final Weld weld = new Weld();
-        WeldContainer container = weld.initialize();
-        // Runtime.getRuntime().addShutdownHook(new Thread()
-        // {
-        // /**
-        // * @see java.lang.Thread#run()
-        // */
-        // @Override
-        // public void run()
-        // {
-        // weld.shutdown();
-        // }
-        // });
 
-        IAutomatedTellerMachine atm = container.select(AutomatedTellerMachineImpl.class).get();
+        try (WeldContainer container = weld.initialize())
+        {
+            // Runtime.getRuntime().addShutdownHook(new Thread()
+            // {
+            // /**
+            // * @see java.lang.Thread#run()
+            // */
+            // @Override
+            // public void run()
+            // {
+            // weld.shutdown();
+            // }
+            // });
 
-        atm.deposit(1.00F);
+            IAutomatedTellerMachine atm = container.select(AutomatedTellerMachineImpl.class).get();
+
+            atm.deposit(1.00F);
+        }
     }
 }

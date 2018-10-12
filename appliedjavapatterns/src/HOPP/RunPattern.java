@@ -38,6 +38,7 @@ public class RunPattern
      * @param arguments String[]
      * @throws RemoteException Falls was schief geht
      */
+    @SuppressWarnings("unused")
     public static void main(final String[] arguments) throws RemoteException
     {
         System.out.println("Example for the HOPP pattern");
@@ -119,10 +120,9 @@ public class RunPattern
         contacts.add(attendee);
         Location place = new LocationImpl("Albuquerque, NM");
 
-        localObject
-                .addAppointment(
-                        new Appointment("Opening speeches at annual Java Guru's dinner", contacts, place, createDate(2001, 4, 1, 16, 0), createDate(2001, 4, 1,
-                                18, 0)), createDate(2001, 4, 1, 0, 0));
+        localObject.addAppointment(
+                new Appointment("Opening speeches at annual Java Guru's dinner", contacts, place, createDate(2001, 4, 1, 16, 0), createDate(2001, 4, 1, 18, 0)),
+                createDate(2001, 4, 1, 0, 0));
         localObject.addAppointment(
                 new Appointment("Java Guru post-dinner Cafe time", contacts, place, createDate(2001, 4, 1, 19, 30), createDate(2001, 4, 1, 21, 45)),
                 createDate(2001, 4, 1, 0, 0));

@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 import net.led.demo.elements.ticker.StockTickerElement;
 import net.led.demo.provider.Stock;
 import net.led.demo.provider.UpdateListener;
@@ -31,6 +32,7 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
     /**
      * @param args String[]
      */
+    @SuppressWarnings("unused")
     public static void main(final String[] args)
     {
         try
@@ -96,6 +98,7 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
     /**
      * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
+    @SuppressWarnings("unused")
     @Override
     public void actionPerformed(final ActionEvent e)
     {
@@ -165,7 +168,7 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
 
         this.tickerFrame.setUndecorated(true);
         this.tickerFrame.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, this.tickerFrame.getPreferredSize().height);
-        this.tickerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.tickerFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.tickerFrame.setVisible(true);
         this.ledTicker.startAnimation();
     }

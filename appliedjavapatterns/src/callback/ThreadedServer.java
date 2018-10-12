@@ -51,7 +51,10 @@ public class ThreadedServer
     /**
      *
      */
-    @SuppressWarnings("resource")
+    @SuppressWarnings(
+    {
+            "resource", "unused"
+    })
     public void runServer()
     {
         try

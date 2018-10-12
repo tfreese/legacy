@@ -34,6 +34,7 @@ public class CallbackServerImpl implements CallbackServer
     /**
      * @see callback.CallbackServer#getProject(java.lang.String, java.lang.String, java.lang.String)
      */
+    @SuppressWarnings("unused")
     @Override
     public void getProject(final String projectID, final String callbackMachine, final String callbackObjectName)
     {

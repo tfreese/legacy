@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 import net.led.demo.elements.display.StockDisplayElement;
 import net.led.demo.provider.Stock;
@@ -38,6 +39,7 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
     /**
      * @param args String[]
      */
+    @SuppressWarnings("unused")
     public static void main(final String[] args)
     {
         new LedDisplayDemo();
@@ -491,7 +493,7 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
         // displayFrame.pack();
         this.displayFrame.setSize(600, 400);
         centerFrame(this.displayFrame);
-        this.displayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.displayFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.displayFrame.setVisible(true);
     }
 

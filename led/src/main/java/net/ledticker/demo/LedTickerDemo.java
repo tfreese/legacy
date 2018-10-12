@@ -42,6 +42,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
     /**
      * @param args String[]
      */
+    @SuppressWarnings("unused")
     public static void main(final String[] args)
     {
         new LedTickerDemo();

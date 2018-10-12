@@ -17,22 +17,22 @@ public class LedPanel extends JPanel
     private static final long serialVersionUID = 3000L;
 
     /**
-     * 
+     *
      */
     private Element displayElement = null;
 
     /**
-     * 
+     *
      */
     private int height = 0;
 
     /**
-     * 
+     *
      */
     private Matrix matrix = null;
 
     /**
-     * 
+     *
      */
     private Dimension preferredSize = null;
 
@@ -81,12 +81,10 @@ public class LedPanel extends JPanel
         {
             return;
         }
-        else
-        {
-            this.matrix.b(g1, this.displayElement, getWidth(), getHeight());
 
-            return;
-        }
+        this.matrix.b(g1, this.displayElement, getWidth(), getHeight());
+
+        return;
     }
 
     /**

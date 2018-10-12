@@ -33,7 +33,7 @@ public class Router implements OutputChannel
 
         /**
          * Creates a new RouterWorkThread object.
-         * 
+         *
          * @param newMessage {@link Message}
          * @param newDestinations {@link OutputChannel}[]
          */
@@ -107,6 +107,7 @@ public class Router implements OutputChannel
     /**
      * @see router.OutputChannel#sendMessage(router.Message)
      */
+    @SuppressWarnings("unused")
     @Override
     public synchronized void sendMessage(final Message message)
     {

@@ -708,10 +708,8 @@ public class Matrix
         {
             return i1;
         }
-        else
-        {
-            return token.getDisplayValue().length() * i1;
-        }
+
+        return token.getDisplayValue().length() * i1;
     }
 
     /**

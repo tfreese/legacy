@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 import net.led.demo.elements.TimeDisplayElement;
 import net.led.demo.provider.TimeProvider;
@@ -37,6 +38,7 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
     /**
      * @param args String[]
      */
+    @SuppressWarnings("unused")
     public static void main(final String[] args)
     {
         new TimeDisplayDemo();
@@ -492,7 +494,7 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
         // displayFrame.pack();
         this.displayFrame.setSize(600, 400);
         centerFrame(this.displayFrame);
-        this.displayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.displayFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.displayFrame.setVisible(true);
     }
 

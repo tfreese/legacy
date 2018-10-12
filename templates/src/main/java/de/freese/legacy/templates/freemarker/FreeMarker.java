@@ -16,66 +16,66 @@ import freemarker.template.Version;
  */
 public class FreeMarker
 {
-	/**
-	 * @param args String[]
-	 */
-	public static void main(final String[] args)
-	{
-		new FreeMarker("example.ftl");
-	}
+    /**
+     * @return {@link List}
+     */
+    public static List<String> getNames()
+    {
+        List<String> list = new ArrayList<>();
 
-	/**
-	 * Erstellt ein neues {@link FreeMarker} Object.
-	 * 
-	 * @param templateFile String
-	 */
-	public FreeMarker(final String templateFile)
-	{
-		super();
+        list.add("ArrayList element 1");
+        list.add("ArrayList element 2");
+        list.add("ArrayList element 3");
+        list.add("ArrayList element 4");
 
-		try
-		{
+        return list;
+    }
 
-			Configuration cfg = new Configuration(new Version("2.3.0"));
-			// cfg.setTemplateLoader(new FileTemplateLoader(new File(".")));
-			// cfg.setTemplateLoader(new ClassTemplateLoader(FreeMarker.class, ""));
-			cfg.setDirectoryForTemplateLoading(new File("src/main/resources/templates/freemarker"));
-			cfg.setNumberFormat("0.#######");
-			// cfg.setObjectWrapper(ObjectWrapper.BEANS_WRAPPER);
-			// cfg.setObjectWrapper(BeansWrapper.getDefaultInstance());
+    /**
+     * @param args String[]
+     */
+    public static void main(final String[] args)
+    {
+        String templateFile = "example.ftl";
 
-			Template template = cfg.getTemplate(templateFile);
+        try
+        {
 
-			Map<String, Object> model = new HashMap<>();
-			// SimpleHash model = new SimpleHash();
-			model.put("names", getNames());
-			model.put("Math", Math.class);
-			model.put("PI", Double.valueOf(Math.PI));
+            Configuration cfg = new Configuration(new Version("2.3.0"));
+            // cfg.setTemplateLoader(new FileTemplateLoader(new File(".")));
+            // cfg.setTemplateLoader(new ClassTemplateLoader(FreeMarker.class, ""));
+            cfg.setDirectoryForTemplateLoading(new File("src/main/resources/templates/freemarker"));
+            cfg.setNumberFormat("0.#######");
+            // cfg.setObjectWrapper(ObjectWrapper.BEANS_WRAPPER);
+            // cfg.setObjectWrapper(BeansWrapper.getDefaultInstance());
 
-			try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out)))
-			{
-				template.process(model, writer);
-				writer.flush();
-			}
-		}
-		catch (Exception ex)
-		{
-			System.err.println(ex);
-		}
-	}
+            Template template = cfg.getTemplate(templateFile);
 
-	/**
-	 * @return {@link List}
-	 */
-	public List<String> getNames()
-	{
-		List<String> list = new ArrayList<>();
+            Map<String, Object> model = new HashMap<>();
+            // SimpleHash model = new SimpleHash();
+            model.put("names", getNames());
+            model.put("Math", Math.class);
+            model.put("PI", Double.valueOf(Math.PI));
 
-		list.add("ArrayList element 1");
-		list.add("ArrayList element 2");
-		list.add("ArrayList element 3");
-		list.add("ArrayList element 4");
+            try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out)))
+            {
+                template.process(model, writer);
+                writer.flush();
+            }
+        }
+        catch (Exception ex)
+        {
+            System.err.println(ex);
+        }
+    }
 
-		return list;
-	}
+    /**
+     * Erstellt ein neues {@link FreeMarker} Object.
+     *
+     * @param templateFile String
+     */
+    public FreeMarker(final String templateFile)
+    {
+        super();
+    }
 }

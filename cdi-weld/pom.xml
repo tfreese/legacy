@@ -16,10 +16,6 @@
     <description>CDI Demo mit WELD</description>
     <inceptionYear>2012</inceptionYear>
 
-    <properties>
-        <version.deltaspike>0.3-incubating</version.deltaspike>
-    </properties>
-
     <dependencies>
         <!-- compile scope -->
         <dependency>

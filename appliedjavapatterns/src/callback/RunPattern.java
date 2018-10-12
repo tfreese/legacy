@@ -12,6 +12,7 @@ public class RunPattern
     /**
      * @param arguments String[]
      */
+    @SuppressWarnings("unused")
     public static void main(final String[] arguments)
     {
         // if (System.getSecurityManager() == null)

@@ -22,7 +22,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${version:org.apache.maven.plugins:maven-compiler-plugin}</version>
                 <configuration>
                     <!-- Annotation Processing abschalten -->
                     <compilerArgument>-proc:none</compilerArgument>
