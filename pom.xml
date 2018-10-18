@@ -30,20 +30,7 @@
         <developerConnection>scm:git:https://github.com/tfreese/legacy.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
-
-    <modules>
-        <!--module>annotation-procesing</module-->
-        <module>appliedjavapatterns</module>
-        <module>cdi-weld</module>
-        <module>docbook</module>
-        <module>led</module>
-        <module>icons</module>
-        <module>jgoodies-binding</module>
-        <module>osgi</module>
-        <module>templates</module>
-        <module>vfs-extensions</module>
-    </modules>
-
+    
     <properties>
         <!-- Dependencies -->
         <version:com.jgoodies:jgoodies-binding>2.13.0</version:com.jgoodies:jgoodies-binding>
@@ -62,7 +49,20 @@
 
         <!-- Plugins -->
         <version:com.agilejava.docbkx:docbkx-maven-plugin>2.0.17</version:com.agilejava.docbkx:docbkx-maven-plugin>
-    </properties>
+    </properties>    
+
+    <modules>
+        <!--module>annotation-procesing</module-->
+        <module>appliedjavapatterns</module>
+        <module>cdi-weld</module>
+        <module>docbook</module>
+        <module>led</module>
+        <module>icons</module>
+        <module>jgoodies-binding</module>
+        <module>osgi</module>
+        <module>templates</module>
+        <module>vfs-extensions</module>
+    </modules>
 
     <profiles>
         <profile>
