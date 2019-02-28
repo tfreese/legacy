@@ -33,7 +33,6 @@
 
     <properties>
         <!-- Dependencies -->
-        <version:com.jgoodies:jgoodies-binding>2.13.0</version:com.jgoodies:jgoodies-binding>
         <version:com.jgoodies:jgoodies-forms>1.9.0</version:com.jgoodies:jgoodies-forms>
         <version:com.jgoodies:jgoodies-looks>2.7.0</version:com.jgoodies:jgoodies-looks>
         <version:javax.help:javahelp>2.0.05</version:javax.help:javahelp>
