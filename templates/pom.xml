@@ -18,12 +18,10 @@
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
-            <version>${version:org.apache.velocity:velocity}</version>
         </dependency>
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>${version:org.freemarker:freemarker}</version>
         </dependency>
     </dependencies>
 </project>

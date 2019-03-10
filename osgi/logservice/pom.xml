@@ -51,12 +51,10 @@
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
-            <version>${version:org.osgi:org.osgi.core}</version>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.compendium</artifactId>
-            <version>${version:org.osgi:org.osgi.compendium}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

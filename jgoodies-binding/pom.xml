@@ -26,7 +26,6 @@
         <dependency>
             <groupId>com.jgoodies</groupId>
             <artifactId>jgoodies-forms</artifactId>
-            <version>${version:com.jgoodies:jgoodies-forms}</version>
         </dependency>
 
         <!-- runtime scope -->

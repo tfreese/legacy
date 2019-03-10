@@ -20,7 +20,6 @@
             <plugin>
                 <groupId>com.agilejava.docbkx</groupId>
                 <artifactId>docbkx-maven-plugin</artifactId>
-                <version>${version:com.agilejava.docbkx:docbkx-maven-plugin}</version>
                 <dependencies>
                     <!-- DocBook-Version festlegen -->
                     <!--dependency>
@@ -139,7 +138,6 @@
         <dependency>
             <groupId>javax.help</groupId>
             <artifactId>javahelp</artifactId>
-            <version>${version:javax.help:javahelp}</version>
         </dependency>
 
         <!-- runtime scope -->
