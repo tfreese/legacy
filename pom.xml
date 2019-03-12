@@ -37,7 +37,10 @@
 		<version:com.jgoodies:jgoodies-looks>2.7.0</version:com.jgoodies:jgoodies-looks>
 		<version:javax.help:javahelp>2.0.05</version:javax.help:javahelp>
 		<version:org.apache.commons:commons-vfs>2.3</version:org.apache.commons:commons-vfs>
-		<version:org.apache.jackrabbit:jackrabbit>2.19.1</version:org.apache.jackrabbit:jackrabbit><!--2.14.4-->
+		
+		<!-- Eine höhere Version bei jackrabbit erzeugt Fehler in vfs-extensions -->
+		<version:org.apache.jackrabbit:jackrabbit>2.14.4</version:org.apache.jackrabbit:jackrabbit><!--2.14.4-->
+		
 		<version:org.apache.felix:org.apache.felix.main>6.0.2</version:org.apache.felix:org.apache.felix.main><!-- 5.6.10 -->
 		<version:org.apache.velocity:velocity>1.7</version:org.apache.velocity:velocity>
 		<version:org.freemarker:freemarker>2.3.28</version:org.freemarker:freemarker>
