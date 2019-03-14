@@ -33,24 +33,24 @@
 
 	<properties>
 		<!-- Dependencies -->
-		<version:com.jgoodies:jgoodies-forms>1.9.0</version:com.jgoodies:jgoodies-forms>
-		<version:com.jgoodies:jgoodies-looks>2.7.0</version:com.jgoodies:jgoodies-looks>
-		<version:javax.help:javahelp>2.0.05</version:javax.help:javahelp>
-		<version:org.apache.commons:commons-vfs>2.3</version:org.apache.commons:commons-vfs>
+		<version_com.jgoodies_jgoodies-forms>1.9.0</version_com.jgoodies_jgoodies-forms>
+		<version_com.jgoodies_jgoodies-looks>2.7.0</version_com.jgoodies_jgoodies-looks>
+		<version_javax.help_javahelp>2.0.05</version_javax.help_javahelp>
+		<version_org.apache.commons_vfs>2.3</version_org.apache.commons_vfs>
 		
 		<!-- Eine höhere Version bei jackrabbit erzeugt Fehler in vfs-extensions -->
-		<version:org.apache.jackrabbit:jackrabbit>2.14.4</version:org.apache.jackrabbit:jackrabbit><!--2.14.4-->
+		<version_org.apache.jackrabbit>2.14.4</version_org.apache.jackrabbit><!--2.14.4-->
 		
-		<version:org.apache.felix:org.apache.felix.main>6.0.2</version:org.apache.felix:org.apache.felix.main><!-- 5.6.10 -->
-		<version:org.apache.velocity:velocity>1.7</version:org.apache.velocity:velocity>
-		<version:org.freemarker:freemarker>2.3.28</version:org.freemarker:freemarker>
-		<version:org.jboss.weld.se:weld-se>2.4.8.Final</version:org.jboss.weld.se:weld-se>
-		<version:org.osgi:org.osgi.compendium>5.0.0</version:org.osgi:org.osgi.compendium>
-		<version:org.osgi:org.osgi.core>6.0.0</version:org.osgi:org.osgi.core>
-		<version:org.springframework.osgi:spring-osgi>1.2.1</version:org.springframework.osgi:spring-osgi>
+		<version_org.apache.felix>6.0.2</version_org.apache.felix><!-- 5.6.10 -->
+		<version_org.apache.velocity>1.7</version_org.apache.velocity>
+		<version_org.freemarker>2.3.28</version_org.freemarker>
+		<version_org.jboss.weld.se>2.4.8.Final</version_org.jboss.weld.se>
+		<version_org.osgi_org.osgi.compendium>5.0.0</version_org.osgi_org.osgi.compendium>
+		<version_org.osgi_org.osgi.core>6.0.0</version_org.osgi_org.osgi.core>
+		<version_org.springframework.osgi>1.2.1</version_org.springframework.osgi>
 
 		<!-- Plugins -->
-		<version:com.agilejava.docbkx:docbkx-maven-plugin>2.0.17</version:com.agilejava.docbkx:docbkx-maven-plugin>
+		<version_com.agilejava.docbkx_docbkx-maven-plugin>2.0.17</version_com.agilejava.docbkx_docbkx-maven-plugin>
 	</properties>
 
 	<modules>
@@ -106,22 +106,22 @@
 			<dependency>
 				<groupId>com.jgoodies</groupId>
 				<artifactId>jgoodies-forms</artifactId>
-				<version>${version:com.jgoodies:jgoodies-forms}</version>
+				<version>${version_com.jgoodies_jgoodies-forms}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.jgoodies</groupId>
 				<artifactId>jgoodies-looks</artifactId>
-				<version>${version:com.jgoodies:jgoodies-looks}</version>
+				<version>${version_com.jgoodies_jgoodies-looks}</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.help</groupId>
 				<artifactId>javahelp</artifactId>
-				<version>${version:javax.help:javahelp}</version>
+				<version>${version_javax.help_javahelp}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-vfs2</artifactId>
-				<version>${version:org.apache.commons:commons-vfs}</version>
+				<version>${version_org.apache.commons_vfs}</version>
 				<exclusions>
 					<exclusion>
 						<artifactId>commons-logging</artifactId>
@@ -140,37 +140,37 @@
 			<dependency>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>org.apache.felix.main</artifactId>
-				<version>${version:org.apache.felix:org.apache.felix.main}</version>
+				<version>${version_org.apache.felix}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.jackrabbit</groupId>
 				<artifactId>jackrabbit-webdav</artifactId>
-				<version>${version:org.apache.jackrabbit:jackrabbit}</version>
+				<version>${version_org.apache.jackrabbit}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.velocity</groupId>
 				<artifactId>velocity</artifactId>
-				<version>${version:org.apache.velocity:velocity}</version>
+				<version>${version_org.apache.velocity}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.freemarker</groupId>
 				<artifactId>freemarker</artifactId>
-				<version>${version:org.freemarker:freemarker}</version>
+				<version>${version_org.freemarker}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.jboss.weld.se</groupId>
 				<artifactId>weld-se</artifactId>
-				<version>${version:org.jboss.weld.se:weld-se}</version>
+				<version>${version_org.jboss.weld.se}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.osgi</groupId>
 				<artifactId>org.osgi.core</artifactId>
-				<version>${version:org.osgi:org.osgi.core}</version>
+				<version>${version_org.osgi_org.osgi.core}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.osgi</groupId>
 				<artifactId>org.osgi.compendium</artifactId>
-				<version>${version:org.osgi:org.osgi.compendium}</version>
+				<version>${version_org.osgi_org.osgi.compendium}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -181,7 +181,7 @@
 				<plugin>
 					<groupId>com.agilejava.docbkx</groupId>
 					<artifactId>docbkx-maven-plugin</artifactId>
-					<version>${version:com.agilejava.docbkx:docbkx-maven-plugin}</version>
+					<version>${version_com.agilejava.docbkx_docbkx-maven-plugin}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
