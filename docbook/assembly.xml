@@ -13,17 +13,9 @@
 
     <fileSets>
         <fileSet>
+            <directory>src/docbkx</directory>
             <outputDirectory>src/docbkx</outputDirectory>
             <useDefaultExcludes>true</useDefaultExcludes>
-            <directory>src/docbkx</directory>
-            <includes>
-                <include>**/*</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <outputDirectory>docu</outputDirectory>
-            <useDefaultExcludes>true</useDefaultExcludes>
-            <directory>docu</directory>
             <includes>
                 <include>**/*</include>
             </includes>
