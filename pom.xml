@@ -41,7 +41,7 @@
 		<!-- Eine höhere Version bei jackrabbit erzeugt Fehler in vfs-extensions -->
 		<version_org.apache.jackrabbit>2.14.4</version_org.apache.jackrabbit><!--2.14.4-->
 		
-		<version_org.apache.felix>6.0.2</version_org.apache.felix><!-- 5.6.10 -->
+		<version_org.apache.felix>6.0.3</version_org.apache.felix><!-- 5.6.10 -->
 		<version_org.apache.velocity>1.7</version_org.apache.velocity>
 		<version_org.freemarker>2.3.28</version_org.freemarker>
 		<version_org.jboss.weld.se>2.4.8.Final</version_org.jboss.weld.se>
