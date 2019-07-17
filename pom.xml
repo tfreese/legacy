@@ -35,12 +35,10 @@
 		<!-- Dependencies -->
 		<version_com.jgoodies_jgoodies-forms>1.9.0</version_com.jgoodies_jgoodies-forms>
 		<version_com.jgoodies_jgoodies-looks>2.7.0</version_com.jgoodies_jgoodies-looks>
+		
 		<version_javax.help_javahelp>2.0.05</version_javax.help_javahelp>
-		<version_org.apache.commons_vfs>2.3</version_org.apache.commons_vfs>
 		
-		<!-- Eine höhere Version bei jackrabbit erzeugt Fehler in vfs-extensions -->
-		<version_org.apache.jackrabbit>2.14.4</version_org.apache.jackrabbit><!--2.14.4-->
-		
+		<version_org.apache.commons_vfs>2.4</version_org.apache.commons_vfs>		
 		<version_org.apache.felix>6.0.3</version_org.apache.felix><!-- 5.6.10 -->
 		<version_org.apache.velocity>1.7</version_org.apache.velocity>
 		<version_org.freemarker>2.3.28</version_org.freemarker>
@@ -122,7 +120,7 @@
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-vfs2</artifactId>
 				<version>${version_org.apache.commons_vfs}</version>
-				<exclusions>
+				<!--exclusions>
 					<exclusion>
 						<artifactId>commons-logging</artifactId>
 						<groupId>commons-logging</groupId>
@@ -135,17 +133,12 @@
 						<groupId>org.apache.maven.scm</groupId>
 						<artifactId>maven-scm-provider-svnexe</artifactId>
 					</exclusion>
-				</exclusions>
+				</exclusions-->
 			</dependency>
 			<dependency>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>org.apache.felix.main</artifactId>
 				<version>${version_org.apache.felix}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.jackrabbit</groupId>
-				<artifactId>jackrabbit-webdav</artifactId>
-				<version>${version_org.apache.jackrabbit}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.velocity</groupId>

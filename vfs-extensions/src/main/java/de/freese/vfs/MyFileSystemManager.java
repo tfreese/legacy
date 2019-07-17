@@ -11,16 +11,17 @@ import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.impl.DefaultFileReplicator;
 import org.apache.commons.vfs2.impl.DefaultFileSystemManager;
 import org.apache.commons.vfs2.impl.PrivilegedFileReplicator;
+import org.apache.commons.vfs2.provider.https.HttpsFileProvider;
 import org.apache.commons.vfs2.provider.local.DefaultLocalFileProvider;
 import org.apache.commons.vfs2.provider.temp.TemporaryFileProvider;
 import org.apache.commons.vfs2.provider.url.UrlFileProvider;
 import org.apache.commons.vfs2.provider.webdav.WebdavFileProvider;
-import de.freese.vfs.webdav.WebdavHTTPSFileProvider;
 
 /**
  * {@link FileSystemManager}, der auch die Temporären Dateien im gleichen Verzeichnis<br>
- * wie alle anderen ablegt.
- *
+ * wie alle anderen ablegt.<br>
+ * 
+ * @see <a href="https://commons.apache.org/proper/commons-vfs/filesystems.html">commons-vfs filesystems</a>
  * @author Thomas Freese
  */
 class MyFileSystemManager extends DefaultFileSystemManager
@@ -60,7 +61,7 @@ class MyFileSystemManager extends DefaultFileSystemManager
 
     /**
      * Closes all files created by this manager, and cleans up any temporary files. Also closes all providers and the replicator.
-     * 
+     *
      * @see org.apache.commons.vfs2.impl.DefaultFileSystemManager#close()
      */
     @Override
@@ -79,8 +80,9 @@ class MyFileSystemManager extends DefaultFileSystemManager
         // Nur Datei Provider definieren.
         addProvider("file", new DefaultLocalFileProvider());
         addProvider("tmp", new TemporaryFileProvider());
-        addProvider("webdavHTTPS", new WebdavHTTPSFileProvider());
+        // addProvider("webdavHTTPS", new WebdavHTTPSFileProvider());
         addProvider("webdav", new WebdavFileProvider());
+        addProvider("https", new HttpsFileProvider());
         // addProvider("iso", new IsoFileProvider());
 
         setDefaultProvider(new UrlFileProvider());

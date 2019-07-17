@@ -19,6 +19,7 @@ public class Main
      * @param args String[]
      * @throws Exception Falls was schief geht.
      */
+    @SuppressWarnings("resource")
     public static void main(final String[] args) throws Exception
     {
         // FileSystemOptions opts = new FileSystemOptions();
