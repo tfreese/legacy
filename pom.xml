@@ -66,7 +66,7 @@
 
 	<profiles>
 		<profile>
-			<id>windows</id>
+			<id>windows-jre-tools.jar</id>
 			<activation>
 				<os>
 					<family>windows</family>
@@ -77,7 +77,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>linux</id>
+			<id>linux-jre-tools.jar</id>
 			<activation>
 				<os>
 					<family>linux</family>
