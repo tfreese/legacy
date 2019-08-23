@@ -34,11 +34,11 @@
 		<!-- Dependencies -->
 		<version_com.jgoodies_jgoodies-forms>1.9.0</version_com.jgoodies_jgoodies-forms>
 		<version_com.jgoodies_jgoodies-looks>2.7.0</version_com.jgoodies_jgoodies-looks>
-		
+
 		<version_javax.help_javahelp>2.0.05</version_javax.help_javahelp>
-		
-		<version_org.apache.commons_vfs>2.4.1</version_org.apache.commons_vfs>		
-		<version_org.apache.felix>6.0.3</version_org.apache.felix><!-- 5.6.10 -->
+
+		<version_org.apache.commons_vfs>2.4.1</version_org.apache.commons_vfs>
+		<version_org.apache.felix>6.0.3</version_org.apache.felix>
 		<version_org.apache.velocity>1.7</version_org.apache.velocity>
 		<version_org.freemarker>2.3.29</version_org.freemarker>
 		<version_org.jboss.weld.se>2.4.8.Final</version_org.jboss.weld.se>
