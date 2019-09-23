@@ -39,8 +39,7 @@
 
 		<version_org.apache.commons_vfs>2.4.1</version_org.apache.commons_vfs>
 		<version_org.apache.felix>6.0.3</version_org.apache.felix>
-		<version_org.apache.velocity>1.7</version_org.apache.velocity>
-		<version_org.freemarker>2.3.29</version_org.freemarker>
+		<version_org.apache.velocity>2.1</version_org.apache.velocity>
 		<version_org.jboss.weld.se>2.4.8.Final</version_org.jboss.weld.se>
 		<version_org.osgi_org.osgi.compendium>5.0.0</version_org.osgi_org.osgi.compendium>
 		<version_org.osgi_org.osgi.core>6.0.0</version_org.osgi_org.osgi.core>
@@ -141,13 +140,8 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.velocity</groupId>
-				<artifactId>velocity</artifactId>
+				<artifactId>velocity-engine-core</artifactId>
 				<version>${version_org.apache.velocity}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.freemarker</groupId>
-				<artifactId>freemarker</artifactId>
-				<version>${version_org.freemarker}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.jboss.weld.se</groupId>

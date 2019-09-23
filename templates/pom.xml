@@ -16,13 +16,23 @@
     <description>Beispiele für Template-Engines.</description>
 
     <dependencies>
+    	<!-- compile scope -->
         <dependency>
             <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
+            <artifactId>velocity-engine-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
         </dependency>
+        
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- provided scope -->
+		<!-- test scope -->		        
     </dependencies>
 </project>

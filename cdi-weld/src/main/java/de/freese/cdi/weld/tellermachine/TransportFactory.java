@@ -21,15 +21,15 @@ public class TransportFactory
     }
 
     /**
-     * @return {@link IATMTransport}
+     * @return {@link ATMTransport}
      */
     @Produces
-    public IATMTransport createTransport()
+    public ATMTransport createTransport()
     {
         System.out.println("ATMTransport created with producer");
 
 //        return new StandardAtmTransport();
 //        return new SoapAtmTransport();
-        return new JsonRestAtmTransport();
+        return new AtmJsonRestTransport();
     }
 }

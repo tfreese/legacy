@@ -2,8 +2,8 @@ package de.freese.cdi.weld;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
+import de.freese.cdi.weld.tellermachine.AutomatedTellerMachine;
 import de.freese.cdi.weld.tellermachine.AutomatedTellerMachineImpl;
-import de.freese.cdi.weld.tellermachine.IAutomatedTellerMachine;
 
 /**
  * CDI Demo mit WELD.
@@ -37,7 +37,7 @@ public class Main
             // }
             // });
 
-            IAutomatedTellerMachine atm = container.select(AutomatedTellerMachineImpl.class).get();
+            AutomatedTellerMachine atm = container.select(AutomatedTellerMachineImpl.class).get();
 
             atm.deposit(1.00F);
         }

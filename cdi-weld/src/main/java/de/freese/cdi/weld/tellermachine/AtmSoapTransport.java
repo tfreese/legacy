@@ -7,18 +7,18 @@ package de.freese.cdi.weld.tellermachine;
  * @author Thomas Freese
  */
 //@Alternative
-public class SoapAtmTransport implements IATMTransport
+public class AtmSoapTransport implements ATMTransport
 {
     /**
-     * Erstellt ein neues {@link SoapAtmTransport} Object.
+     * Erstellt ein neues {@link AtmSoapTransport} Object.
      */
-    public SoapAtmTransport()
+    public AtmSoapTransport()
     {
         super();
     }
 
     /**
-     * @see de.freese.cdi.weld.tellermachine.IATMTransport#communicateWithBank(byte[])
+     * @see de.freese.cdi.weld.tellermachine.ATMTransport#communicateWithBank(byte[])
      */
     @Override
     public void communicateWithBank(final byte[] packet)

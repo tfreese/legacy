@@ -6,7 +6,7 @@ package de.freese.cdi.weld.tellermachine;
 /**
  * @author Thomas Freese
  */
-public interface IATMTransport
+public interface ATMTransport
 {
     /**
      * @param packet byte[]

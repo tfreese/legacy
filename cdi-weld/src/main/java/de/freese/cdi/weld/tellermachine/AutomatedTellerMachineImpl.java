@@ -10,12 +10,12 @@ import javax.inject.Named;
  * @author Thomas Freese
  */
 @Named("atm")
-public class AutomatedTellerMachineImpl implements IAutomatedTellerMachine
+public class AutomatedTellerMachineImpl implements AutomatedTellerMachine
 {
     /**
      *
      */
-    private IATMTransport transport = null;
+    private ATMTransport transport = null;
 
     /**
      * Erstellt ein neues {@link AutomatedTellerMachineImpl} Object.
@@ -26,27 +26,27 @@ public class AutomatedTellerMachineImpl implements IAutomatedTellerMachine
     }
 
     /**
-     * @see de.freese.cdi.weld.tellermachine.IAutomatedTellerMachine#deposit(float)
+     * @see de.freese.cdi.weld.tellermachine.AutomatedTellerMachine#deposit(float)
      */
     @Override
     public void deposit(final float bd)
     {
         System.out.println("AutomatedTellerMachineImpl.deposit()");
+
         this.transport.communicateWithBank(toByteArray(bd));
     }
 
     /**
-     * @param transport {@link IATMTransport}
+     * @param transport {@link ATMTransport}
      */
     @Inject
-    public void setTransport(final IATMTransport transport)
+    public void setTransport(final ATMTransport transport)
     {
         this.transport = transport;
     }
 
     /**
      * @param f float
-     *
      * @return byte[]
      */
     private byte[] toByteArray(final float f)
@@ -63,12 +63,13 @@ public class AutomatedTellerMachineImpl implements IAutomatedTellerMachine
     }
 
     /**
-     * @see de.freese.cdi.weld.tellermachine.IAutomatedTellerMachine#withdraw(float)
+     * @see de.freese.cdi.weld.tellermachine.AutomatedTellerMachine#withdraw(float)
      */
     @Override
     public void withdraw(final float bd)
     {
         System.out.println("AutomatedTellerMachineImpl.withdraw()");
+
         this.transport.communicateWithBank(toByteArray(bd));
     }
 }

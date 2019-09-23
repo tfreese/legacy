@@ -44,13 +44,12 @@ public class Velocity
              * setup
              */
             Properties properties = new Properties();
-            properties.put("runtime.log", "velocity_example.log");
-            properties.put("resource.loader", "classpath");
-            properties.put("classpath.resource.loader.description", "Velocity Classpath Resource Loader");
-            properties.put("classpath.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
-            properties.put("classpath.resource.loader.path", ".");
-            properties.put("classpath.resource.loader.cache", "false");
-            properties.put("classpath.resource.loader.modificationCheckInterval", "0");
+            properties.put("resource.loaders", "classpath");
+            properties.put("resource.loader.classpath.description", "Velocity Classpath Resource Loader");
+            properties.put("resource.loader.classpath.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+            properties.put("resource.loader.classpath.path", ".");
+            properties.put("resource.loader.classpath.cache", "false");
+            properties.put("resource.loader.classpath.modification_check_interval", "0");
 
             // VelocityEngine ve = new VelocityEngine("velocity.properties");
             VelocityEngine ve = new VelocityEngine(properties);
