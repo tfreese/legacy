@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>de.freese.legacy</groupId>
-        <artifactId>legacy</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+	<parent>
+		<groupId>de.freese.legacy</groupId>
+		<artifactId>legacy</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 
-    <artifactId>vfs-extensions</artifactId>
-    <packaging>jar</packaging>
+	<artifactId>legacy-vfs-extensions</artifactId>
+	<packaging>jar</packaging>
 
-    <name>${project.groupId} - ${project.artifactId}</name>
-    <description>Erweiterungen für die commons-vfs2 API</description>
+	<name>${project.groupId} - ${project.artifactId}</name>
+	<description>Erweiterungen für die commons-vfs2 API</description>
 
-    <dependencies>
-        <!-- compile scope -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-vfs2</artifactId>
-        </dependency>
+	<dependencies>
+		<!-- compile scope -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-vfs2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-vfs2-jackrabbit2</artifactId>
+		</dependency>
 
-        <!-- runtime scope -->
+		<!-- runtime scope -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<scope>runtime</scope>
-		</dependency>        
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
-        <!-- provided scope -->
-        <!-- test scope -->
-    </dependencies>
+		<!-- provided scope -->
+		<!-- test scope -->
+	</dependencies>
 
 </project>

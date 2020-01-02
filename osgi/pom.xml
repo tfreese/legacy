@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>de.freese.legacy.osgi</groupId>
-    <artifactId>osgi</artifactId>
+    <artifactId>legacy-osgi</artifactId>
     <packaging>pom</packaging>
 
     <name>${project.groupId} - ${project.artifactId}</name>

@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>templates</artifactId>
+    <artifactId>legacy-templates</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.groupId} - ${project.artifactId}</name>
@@ -26,6 +26,7 @@
             <artifactId>freemarker</artifactId>
         </dependency>
         
+        <!-- runtime scope -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>

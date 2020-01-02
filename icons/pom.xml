@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>icons</artifactId>
+    <artifactId>legacy-icons</artifactId>
     <packaging>pom</packaging>
 
     <name>${project.groupId} - ${project.artifactId}</name>

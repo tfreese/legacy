@@ -5,11 +5,11 @@
 
     <parent>
         <groupId>de.freese.legacy.osgi</groupId>
-        <artifactId>osgi</artifactId>
+        <artifactId>legacy-osgi</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>osgi-service-consumer</artifactId>
+    <artifactId>legacy-osgi-service-consumer</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.groupId} - ${project.artifactId}</name>
@@ -50,7 +50,7 @@
         <!-- compile scope -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>osgi-service-api</artifactId>
+            <artifactId>legacy-osgi-service-api</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

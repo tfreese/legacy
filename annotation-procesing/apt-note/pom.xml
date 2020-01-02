@@ -7,11 +7,11 @@
 
     <parent>
         <groupId>de.freese.legacy</groupId>
-        <artifactId>apt</artifactId>
+        <artifactId>legacy-apt</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>apt-note</artifactId>
+    <artifactId>legacy-apt-note</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.groupId} - ${project.artifactId}</name>

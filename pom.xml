@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>de.freese</groupId>
@@ -37,7 +37,7 @@
 
 		<version_javax.help_javahelp>2.0.05</version_javax.help_javahelp>
 
-		<version_org.apache.commons_vfs>2.4.1</version_org.apache.commons_vfs>
+		<version_org.apache.commons_vfs>2.5.0</version_org.apache.commons_vfs>
 		<version_org.apache.felix>6.0.3</version_org.apache.felix>
 		<version_org.apache.velocity>2.1</version_org.apache.velocity>
 		<version_org.jboss.weld.se>2.4.8.Final</version_org.jboss.weld.se>
@@ -118,20 +118,11 @@
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-vfs2</artifactId>
 				<version>${version_org.apache.commons_vfs}</version>
-				<!--exclusions>
-					<exclusion>
-						<artifactId>commons-logging</artifactId>
-						<groupId>commons-logging</groupId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-api</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-provider-svnexe</artifactId>
-					</exclusion>
-				</exclusions-->
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-vfs2-jackrabbit2</artifactId>
+				<version>${version_org.apache.commons_vfs}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.felix</groupId>

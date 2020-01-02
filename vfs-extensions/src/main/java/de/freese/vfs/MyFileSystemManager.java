@@ -15,12 +15,12 @@ import org.apache.commons.vfs2.provider.https.HttpsFileProvider;
 import org.apache.commons.vfs2.provider.local.DefaultLocalFileProvider;
 import org.apache.commons.vfs2.provider.temp.TemporaryFileProvider;
 import org.apache.commons.vfs2.provider.url.UrlFileProvider;
-import org.apache.commons.vfs2.provider.webdav.WebdavFileProvider;
+import org.apache.commons.vfs2.provider.webdav4.Webdav4FileProvider;
 
 /**
  * {@link FileSystemManager}, der auch die Temporären Dateien im gleichen Verzeichnis<br>
  * wie alle anderen ablegt.<br>
- * 
+ *
  * @see <a href="https://commons.apache.org/proper/commons-vfs/filesystems.html">commons-vfs filesystems</a>
  * @author Thomas Freese
  */
@@ -80,8 +80,7 @@ class MyFileSystemManager extends DefaultFileSystemManager
         // Nur Datei Provider definieren.
         addProvider("file", new DefaultLocalFileProvider());
         addProvider("tmp", new TemporaryFileProvider());
-        // addProvider("webdavHTTPS", new WebdavHTTPSFileProvider());
-        addProvider("webdav", new WebdavFileProvider());
+        addProvider("webdav", new Webdav4FileProvider());
         addProvider("https", new HttpsFileProvider());
         // addProvider("iso", new IsoFileProvider());
 
