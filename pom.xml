@@ -39,7 +39,7 @@
 
 		<version_org.apache.commons_vfs>2.6.0</version_org.apache.commons_vfs>
 		<version_org.apache.felix>6.0.3</version_org.apache.felix>
-		<version_org.apache.velocity>2.1</version_org.apache.velocity>
+		<version_org.apache.velocity>2.2</version_org.apache.velocity>
 		<version_org.jboss.weld.se>2.4.8.Final</version_org.jboss.weld.se>
 		<version_org.osgi_org.osgi.compendium>5.0.0</version_org.osgi_org.osgi.compendium>
 		<version_org.osgi_org.osgi.core>6.0.0</version_org.osgi_org.osgi.core>
