@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import org.apache.commons.vfs2.FileContent;
 import org.apache.commons.vfs2.FileObject;
-import org.apache.commons.vfs2.FileUtil;
+import org.apache.commons.vfs2.util.FileObjectUtils;
 
 /**
  * @author Thomas Freese
@@ -58,16 +58,14 @@ public class Main
                 // FileObject testObject = fsManager.resolveFile(tempDirRoot, "bla/test.txt");
                 testObject.createFile();
 
-                try (FileContent fc = testObject.getContent())
+                try (FileContent fc = testObject.getContent();
+                     PrintWriter pw = new PrintWriter(fc.getOutputStream()))
                 {
-                    try (PrintWriter bw = new PrintWriter(fc.getOutputStream()))
-                    {
-                        bw.write("blabla");
-                    }
+                    pw.write("blabla");
 
                     // Tmp-Datei lesen
                     OutputStream outputStream = new ByteArrayOutputStream();
-                    FileUtil.writeContent(testObject, outputStream);
+                    FileObjectUtils.writeContent(testObject, outputStream);
 
                     StringBuilder sb = new StringBuilder();
                     sb.append(outputStream);
