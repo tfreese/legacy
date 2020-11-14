@@ -38,12 +38,12 @@ public class LedPanel extends JPanel implements Runnable
     /**
      *
      */
-    private volatile boolean b = false;
+    private volatile boolean b;
 
     /**
      *
      */
-    protected volatile Thread c = null;
+    protected volatile Thread thread;
 
     /**
      *
@@ -53,12 +53,12 @@ public class LedPanel extends JPanel implements Runnable
     /**
      *
      */
-    private Dimension f = null;
+    private Dimension f;
 
     /**
      *
      */
-    private Image g = null;
+    private Image image;
 
     /**
      *
@@ -73,7 +73,7 @@ public class LedPanel extends JPanel implements Runnable
     /**
      *
      */
-    private boolean i = false;
+    private boolean i;
 
     /**
      *
@@ -83,12 +83,12 @@ public class LedPanel extends JPanel implements Runnable
     /**
      *
      */
-    private List<A> n = null;
+    private List<A> n;
 
     /**
      *
      */
-    private Map<Object, A> o = null;
+    private Map<Object, A> o;
 
     /**
      * Erstellt ein neues {@link LedPanel} Object.
@@ -104,6 +104,7 @@ public class LedPanel extends JPanel implements Runnable
         this.o = new HashMap<>();
         this.i = false;
         this.e = 1;
+
         setBackground(null);
         setLayout(null);
         setDoubleBuffered(true);
@@ -130,7 +131,7 @@ public class LedPanel extends JPanel implements Runnable
      */
     public void b(final Image image)
     {
-        this.g = image;
+        this.image = image;
     }
 
     /**
@@ -179,7 +180,7 @@ public class LedPanel extends JPanel implements Runnable
             }
         }
 
-        if ((this.c == null) || this.b)
+        if ((this.thread == null) || this.b)
         {
             repaint();
         }
@@ -302,11 +303,11 @@ public class LedPanel extends JPanel implements Runnable
                     break label0;
                 }
 
-                int k1 = this.g.getWidth(this);
+                int k1 = this.image.getWidth(this);
 
                 for (int i2 = 0; i2 < j1; i2 += k1)
                 {
-                    g1.drawImage(this.g, i2, i1, this);
+                    g1.drawImage(this.image, i2, i1, this);
                 }
             }
 
@@ -358,7 +359,7 @@ public class LedPanel extends JPanel implements Runnable
     {
         Thread thread = Thread.currentThread();
 
-        while (this.c == thread)
+        while (this.thread == thread)
         {
             long l1 = System.currentTimeMillis();
 
@@ -409,16 +410,16 @@ public class LedPanel extends JPanel implements Runnable
      */
     public void startAnimation()
     {
-        if ((this.c != null) && this.b)
+        if ((this.thread != null) && this.b)
         {
             this.b = false;
         }
         else
         {
             this.b = false;
-            this.c = new Thread(this, "Overload.TickerScroll");
-            this.c.setPriority(10);
-            this.c.start();
+            this.thread = new Thread(this, "Overload.TickerScroll");
+            this.thread.setPriority(10);
+            this.thread.start();
         }
     }
 
@@ -427,6 +428,6 @@ public class LedPanel extends JPanel implements Runnable
      */
     public void stopAnimation()
     {
-        this.c = null;
+        this.thread = null;
     }
 }

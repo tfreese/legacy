@@ -71,7 +71,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
     /**
      *
      */
-    private LedTicker ledTicker = null;
+    private LedTicker ledTicker;
 
     /**
      *
@@ -106,7 +106,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
     /**
      *
      */
-    private JFrame tickerFrame = null;
+    private JFrame tickerFrame;
 
     /**
      *

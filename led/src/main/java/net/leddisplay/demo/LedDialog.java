@@ -2,8 +2,6 @@ package net.leddisplay.demo;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.sql.Time;
 import java.text.DateFormat;
@@ -53,12 +51,12 @@ public class LedDialog extends JDialog
     /**
      *
      */
-    private JPanel jContentPane = null;
+    private JPanel jContentPane;
 
     /**
      *
      */
-    private JComponent jLedComponent = null;
+    private JComponent jLedComponent;
 
     /**
      *
@@ -90,30 +88,22 @@ public class LedDialog extends JDialog
      */
     private void createTimer()
     {
-        this.timer = new Timer(3000, new ActionListener()
-        {
-            /**
-             * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-             */
-            @Override
-            public void actionPerformed(final ActionEvent e)
+        this.timer = new Timer(3000, e -> {
+            if (!isShowing())
             {
-                if (!isShowing())
-                {
-                    return;
-                }
-
-                Date currentDate = new Date();
-
-                String time = getTimeFormatter().format(new Time(currentDate.getTime()));
-                String date = getDateFormatter().format(currentDate);
-
-                String symbol = time + " " + date;
-                TextDisplayElement displayElement = new TextDisplayElement(symbol);
-                getLedDisplay().setDisplayElement(displayElement);
-
-                LedDialog.this.timer.start();
+                return;
             }
+
+            Date currentDate = new Date();
+
+            String time = getTimeFormatter().format(new Time(currentDate.getTime()));
+            String date = getDateFormatter().format(currentDate);
+
+            String symbol = time + " " + date;
+            TextDisplayElement displayElement = new TextDisplayElement(symbol);
+            getLedDisplay().setDisplayElement(displayElement);
+
+            LedDialog.this.timer.start();
         });
 
         this.timer.setInitialDelay(5000);

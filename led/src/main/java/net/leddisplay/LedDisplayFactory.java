@@ -3,7 +3,7 @@ package net.leddisplay;
 /**
  * @author Thomas Freese
  */
-public class LedDisplayFactory
+public final class LedDisplayFactory
 {
     /**
      * @return {@link LedDisplay}
@@ -16,7 +16,7 @@ public class LedDisplayFactory
     /**
      * Erstellt ein neues {@link LedDisplayFactory} Object.
      */
-    public LedDisplayFactory()
+    private LedDisplayFactory()
     {
         super();
     }

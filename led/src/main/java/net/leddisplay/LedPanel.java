@@ -19,7 +19,7 @@ public class LedPanel extends JPanel
     /**
      *
      */
-    private Element displayElement = null;
+    private Element displayElement;
 
     /**
      *
@@ -29,12 +29,12 @@ public class LedPanel extends JPanel
     /**
      *
      */
-    private Matrix matrix = null;
+    private Matrix matrix;
 
     /**
      *
      */
-    private Dimension preferredSize = null;
+    private Dimension preferredSize;
 
     /**
      * Erstellt ein neues {@link LedPanel} Object.
@@ -72,19 +72,18 @@ public class LedPanel extends JPanel
      * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
      */
     @Override
-    public void paintComponent(final Graphics g1)
+    public void paintComponent(final Graphics g)
     {
-        super.paintComponent(g1);
-        this.matrix.b(g1, getWidth(), getHeight());
+        super.paintComponent(g);
+
+        this.matrix.b(g, getWidth(), getHeight());
 
         if (this.displayElement == null)
         {
             return;
         }
 
-        this.matrix.b(g1, this.displayElement, getWidth(), getHeight());
-
-        return;
+        this.matrix.b(g, this.displayElement, getWidth(), getHeight());
     }
 
     /**

@@ -12,12 +12,12 @@ public class DefaultLedDisplay implements LedDisplay
     /**
      *
      */
-    private LedPanel ledPanel = null;
+    private LedPanel ledPanel;
 
     /**
      *
      */
-    private Matrix matrix = null;
+    private Matrix matrix;
 
     /**
      * Erstellt ein neues {@link DefaultLedDisplay} Object.

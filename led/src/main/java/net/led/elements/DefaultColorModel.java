@@ -8,9 +8,9 @@ import java.awt.Color;
 public class DefaultColorModel implements ColorModel
 {
     /**
-     * 
+     *
      */
-    private Color b = null;
+    private Color color;
 
     /**
      * Erstellt ein neues {@link DefaultColorModel} Object.
@@ -29,7 +29,7 @@ public class DefaultColorModel implements ColorModel
     {
         super();
 
-        this.b = color;
+        this.color = color;
     }
 
     /**
@@ -38,7 +38,7 @@ public class DefaultColorModel implements ColorModel
     @Override
     public Color getColor()
     {
-        return this.b;
+        return this.color;
     }
 
     /**
@@ -47,6 +47,6 @@ public class DefaultColorModel implements ColorModel
     @Override
     public void setColor(final Color color)
     {
-        this.b = color;
+        this.color = color;
     }
 }

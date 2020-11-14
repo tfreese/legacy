@@ -3,7 +3,7 @@ package net.ledticker;
 /**
  * @author Thomas Freese
  */
-public class LedTickerFactory
+public final class LedTickerFactory
 {
     /**
      * @return {@link LedTicker}
@@ -16,7 +16,7 @@ public class LedTickerFactory
     /**
      * Erstellt ein neues {@link LedTickerFactory} Object.
      */
-    public LedTickerFactory()
+    private LedTickerFactory()
     {
         super();
     }

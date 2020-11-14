@@ -424,7 +424,7 @@ public class Matrix
     /**
      *
      */
-    private Color backgroundColor = null;
+    private Color backgroundColor;
 
     /**
      *
@@ -439,7 +439,7 @@ public class Matrix
     /**
      *
      */
-    private Color dotOffColor = null;
+    private Color dotOffColor;
 
     /**
      *

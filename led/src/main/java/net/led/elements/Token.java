@@ -8,7 +8,7 @@ public abstract class Token
     /**
      *
      */
-    private ColorModel b = null;
+    private ColorModel colorModel;
 
     /**
      * Erstellt ein neues {@link Token} Object.
@@ -33,7 +33,7 @@ public abstract class Token
      */
     public ColorModel getColorModel()
     {
-        return this.b;
+        return this.colorModel;
     }
 
     /**
@@ -51,7 +51,7 @@ public abstract class Token
             colormodel = new DefaultColorModel();
         }
 
-        this.b = colormodel;
+        this.colorModel = colormodel;
     }
 
     /**

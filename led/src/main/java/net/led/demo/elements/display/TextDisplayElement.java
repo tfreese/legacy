@@ -12,7 +12,7 @@ public class TextDisplayElement extends AbstractDisplayElement
     /**
      *
      */
-    private TextToken textToken = null;
+    private TextToken textToken;
 
     /**
      * Creates a <tt>TextDisplayElement</tt> with a given display value
