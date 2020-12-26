@@ -419,7 +419,7 @@ public class Matrix
     /**
      *
      */
-    private int anchor = 0;
+    private int anchor;
 
     /**
      *
@@ -429,12 +429,12 @@ public class Matrix
     /**
      *
      */
-    private int bottom = 0;
+    private int bottom;
 
     /**
      *
      */
-    private int dotHeight = 0;
+    private int dotHeight;
 
     /**
      *
@@ -444,42 +444,42 @@ public class Matrix
     /**
      *
      */
-    private int dotWidth = 0;
+    private int dotWidth;
 
     /**
      *
      */
-    private int gap = 0;
+    private int gap;
 
     /**
      *
      */
-    private int hGap = 0;
+    private int hGap;
 
     /**
      *
      */
-    private int i = 0;
+    private int i;
 
     /**
      *
      */
-    private int left = 0;
+    private int left;
 
     /**
      *
      */
-    private int right = 0;
+    private int right;
 
     /**
      *
      */
-    private int top = 0;
+    private int top;
 
     /**
      *
      */
-    private int vGap = 0;
+    private int vGap;
 
     /**
      * Erstellt ein neues {@link Matrix} Object.
@@ -501,126 +501,6 @@ public class Matrix
         this.dotWidth = 1;
         this.backgroundColor = new Color(0x111111);
         this.dotOffColor = new Color(0x666666);
-    }
-
-    /**
-     * @param graphics {@link Graphics}
-     * @param bytes byte[]
-     * @param x int
-     * @param offset int
-     * @return int
-     */
-    private int b(final Graphics graphics, final byte[] bytes, int x, final int offset)
-    {
-        Color color = graphics.getColor();
-
-        for (byte b : bytes)
-        {
-            for (int j = 0; j < 7; j++)
-            {
-                if ((b & (1 << j)) != 0)
-                {
-                    graphics.setColor(color);
-                    int y = (j * (this.dotHeight + this.vGap));
-                    graphics.fillRect(x, offset + y, this.dotWidth, this.dotHeight);
-                }
-            }
-
-            x += (this.dotWidth + this.hGap);
-        }
-
-        x += (this.hGap + this.dotWidth);
-        graphics.setColor(color);
-
-        return x;
-    }
-
-    /**
-     * @param g1 {@link Graphics}
-     * @param displayelement {@link Element}
-     * @param i1 int
-     * @param j1 int
-     */
-    public void b(final Graphics g1, final Element displayelement, int i1, int j1)
-    {
-        Token[] atoken = displayelement.getTokens();
-        int k1 = (int) Math.ceil(getWidthOf(displayelement) / (this.dotWidth + this.hGap));
-        j1 /= (this.dotHeight + this.vGap);
-        i1 /= (this.dotWidth + this.hGap);
-
-        Point point = b(i1, j1, k1);
-        int l1 = point.x;
-        int i2 = point.y;
-
-        for (Token element : atoken)
-        {
-            l1 = b(g1, element, l1, i2);
-        }
-    }
-
-    /**
-     * @param g1 {@link Graphics}
-     * @param width int
-     * @param height int
-     */
-    public void b(final Graphics g1, final int width, final int height)
-    {
-        g1.setColor(this.backgroundColor);
-        g1.fillRect(0, 0, width, height);
-        g1.setColor(this.dotOffColor);
-
-        for (int k1 = 0; k1 < height; k1 += this.dotHeight)
-        {
-            g1.fillRect(0, k1, width, this.dotHeight);
-            k1 += this.vGap;
-        }
-
-        g1.setColor(this.backgroundColor);
-
-        for (int l1 = this.dotWidth; l1 < width; l1 += this.dotWidth)
-        {
-            g1.fillRect(l1, 0, this.hGap, height);
-            l1 += this.hGap;
-        }
-    }
-
-    /**
-     * @param g1 {@link Graphics}
-     * @param token Token
-     * @param i1 int
-     * @param j1 int
-     * @return int
-     */
-    private int b(final Graphics g1, final Token token, int i1, final int j1)
-    {
-        Color color = token.getColorModel().getColor();
-        g1.setColor(color);
-
-        if (token instanceof ArrowToken)
-        {
-            byte[] abyte0 = map.get(((ArrowToken) token).getArrowType());
-            i1 = b(g1, abyte0, i1, j1);
-        }
-        else
-        {
-            String s = token.getDisplayValue();
-
-            for (int k1 = 0; k1 < s.length(); k1++)
-            {
-                byte[] abyte1 = map.get(String.valueOf(s.charAt(k1)));
-
-                if (abyte1 == null)
-                {
-                    abyte1 = map.get("?");
-                }
-
-                i1 = b(g1, abyte1, i1, j1);
-            }
-        }
-
-        i1 += (this.gap * (this.hGap + this.dotWidth));
-
-        return i1;
     }
 
     /**
@@ -743,6 +623,126 @@ public class Matrix
         }
 
         return width;
+    }
+
+    /**
+     * @param graphics {@link Graphics}
+     * @param bytes byte[]
+     * @param x int
+     * @param offset int
+     * @return int
+     */
+    private int paint(final Graphics graphics, final byte[] bytes, int x, final int offset)
+    {
+        Color color = graphics.getColor();
+
+        for (byte b : bytes)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                if ((b & (1 << j)) != 0)
+                {
+                    graphics.setColor(color);
+                    int y = (j * (this.dotHeight + this.vGap));
+                    graphics.fillRect(x, offset + y, this.dotWidth, this.dotHeight);
+                }
+            }
+
+            x += (this.dotWidth + this.hGap);
+        }
+
+        x += (this.hGap + this.dotWidth);
+        graphics.setColor(color);
+
+        return x;
+    }
+
+    /**
+     * @param g1 {@link Graphics}
+     * @param displayelement {@link Element}
+     * @param i1 int
+     * @param j1 int
+     */
+    public void paint(final Graphics g1, final Element displayelement, int i1, int j1)
+    {
+        Token[] atoken = displayelement.getTokens();
+        int k1 = (int) Math.ceil(getWidthOf(displayelement) / (this.dotWidth + this.hGap));
+        j1 /= (this.dotHeight + this.vGap);
+        i1 /= (this.dotWidth + this.hGap);
+
+        Point point = b(i1, j1, k1);
+        int l1 = point.x;
+        int i2 = point.y;
+
+        for (Token element : atoken)
+        {
+            l1 = paint(g1, element, l1, i2);
+        }
+    }
+
+    /**
+     * @param g1 {@link Graphics}
+     * @param width int
+     * @param height int
+     */
+    public void paint(final Graphics g1, final int width, final int height)
+    {
+        g1.setColor(this.backgroundColor);
+        g1.fillRect(0, 0, width, height);
+        g1.setColor(this.dotOffColor);
+
+        for (int k1 = 0; k1 < height; k1 += this.dotHeight)
+        {
+            g1.fillRect(0, k1, width, this.dotHeight);
+            k1 += this.vGap;
+        }
+
+        g1.setColor(this.backgroundColor);
+
+        for (int l1 = this.dotWidth; l1 < width; l1 += this.dotWidth)
+        {
+            g1.fillRect(l1, 0, this.hGap, height);
+            l1 += this.hGap;
+        }
+    }
+
+    /**
+     * @param graphics {@link Graphics}
+     * @param token Token
+     * @param i1 int
+     * @param j1 int
+     * @return int
+     */
+    private int paint(final Graphics graphics, final Token token, int i1, final int j1)
+    {
+        Color color = token.getColorModel().getColor();
+        graphics.setColor(color);
+
+        if (token instanceof ArrowToken)
+        {
+            byte[] bytes = map.get(((ArrowToken) token).getArrowType());
+            i1 = paint(graphics, bytes, i1, j1);
+        }
+        else
+        {
+            String s = token.getDisplayValue();
+
+            for (int k1 = 0; k1 < s.length(); k1++)
+            {
+                byte[] bytes = map.get(String.valueOf(s.charAt(k1)));
+
+                if (bytes == null)
+                {
+                    bytes = map.get("?");
+                }
+
+                i1 = paint(graphics, bytes, i1, j1);
+            }
+        }
+
+        i1 += (this.gap * (this.hGap + this.dotWidth));
+
+        return i1;
     }
 
     /**

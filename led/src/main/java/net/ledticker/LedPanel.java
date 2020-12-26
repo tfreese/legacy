@@ -38,37 +38,22 @@ public class LedPanel extends JPanel implements Runnable
     /**
      *
      */
-    private volatile boolean b;
+    private volatile boolean pause;
 
     /**
      *
      */
-    protected volatile Thread thread;
+    protected byte e;
 
     /**
      *
      */
-    protected byte e = 0;
+    private Dimension dimension;
 
     /**
      *
      */
-    private Dimension f;
-
-    /**
-     *
-     */
-    private Image image;
-
-    /**
-     *
-     */
-    protected int h = 0;
-
-    /**
-     *
-     */
-    private int height = 0;
+    private int height;
 
     /**
      *
@@ -78,7 +63,12 @@ public class LedPanel extends JPanel implements Runnable
     /**
      *
      */
-    protected int k = 0;
+    private Image image;
+
+    /**
+     *
+     */
+    protected int k;
 
     /**
      *
@@ -91,6 +81,16 @@ public class LedPanel extends JPanel implements Runnable
     private Map<Object, A> o;
 
     /**
+     *
+     */
+    protected int speed;
+
+    /**
+     *
+     */
+    protected volatile Thread thread;
+
+    /**
      * Erstellt ein neues {@link LedPanel} Object.
      */
     public LedPanel()
@@ -98,8 +98,8 @@ public class LedPanel extends JPanel implements Runnable
         super();
 
         this.k = 1;
-        this.h = 10;
-        this.b = false;
+        this.speed = 10;
+        this.pause = false;
         this.n = new ArrayList<>();
         this.o = new HashMap<>();
         this.i = false;
@@ -180,18 +180,10 @@ public class LedPanel extends JPanel implements Runnable
             }
         }
 
-        if ((this.thread == null) || this.b)
+        if ((this.thread == null) || this.pause)
         {
             repaint();
         }
-    }
-
-    /**
-     * @param i1 int
-     */
-    public void b(final int i1)
-    {
-        this.h = i1;
     }
 
     /**
@@ -230,7 +222,7 @@ public class LedPanel extends JPanel implements Runnable
     {
         Dimension dimension = super.getPreferredSize();
 
-        if (this.f == null)
+        if (this.dimension == null)
         {
             Insets insets = getInsets();
             dimension = new Dimension(dimension.width + 399, this.height + insets.top + insets.bottom);
@@ -348,7 +340,7 @@ public class LedPanel extends JPanel implements Runnable
      */
     public void pauseAnimation()
     {
-        this.b = !this.b;
+        this.pause = !this.pause;
     }
 
     /**
@@ -363,13 +355,13 @@ public class LedPanel extends JPanel implements Runnable
         {
             long l1 = System.currentTimeMillis();
 
-            if (!this.b)
+            if (!this.pause)
             {
                 h();
                 repaint();
             }
 
-            l1 = this.h - (System.currentTimeMillis() - l1);
+            l1 = this.speed - (System.currentTimeMillis() - l1);
 
             if (l1 < 1L)
             {
@@ -401,8 +393,16 @@ public class LedPanel extends JPanel implements Runnable
     @Override
     public void setPreferredSize(final Dimension dimension)
     {
-        this.f = dimension;
+        this.dimension = dimension;
         super.setPreferredSize(dimension);
+    }
+
+    /**
+     * @param speed int
+     */
+    public void setSpeed(final int speed)
+    {
+        this.speed = speed;
     }
 
     /**
@@ -410,13 +410,13 @@ public class LedPanel extends JPanel implements Runnable
      */
     public void startAnimation()
     {
-        if ((this.thread != null) && this.b)
+        if ((this.thread != null) && this.pause)
         {
-            this.b = false;
+            this.pause = false;
         }
         else
         {
-            this.b = false;
+            this.pause = false;
             this.thread = new Thread(this, "Overload.TickerScroll");
             this.thread.setPriority(10);
             this.thread.start();

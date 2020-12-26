@@ -10,22 +10,22 @@ public class A
     /**
      *
      */
-    private int b = 0;
+    private int b;
 
     /**
      *
      */
-    private Image image = null;
+    private Image image;
 
     /**
      *
      */
-    private Image lastImage = null;
+    private Image lastImage;
 
     /**
      *
      */
-    private int width = 0;
+    private int width;
 
     /**
      * Erstellt ein neues {@link A} Object.

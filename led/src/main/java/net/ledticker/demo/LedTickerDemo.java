@@ -652,9 +652,9 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
      * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
      */
     @Override
-    public void stateChanged(final ChangeEvent e)
+    public void stateChanged(final ChangeEvent event)
     {
-        this.ledTicker.setSpeed(((JSlider) e.getSource()).getValue());
+        this.ledTicker.setSpeed(((JSlider) event.getSource()).getValue());
     }
 
     /**

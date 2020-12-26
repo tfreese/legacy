@@ -24,7 +24,7 @@ public class LedPanel extends JPanel
     /**
      *
      */
-    private int height = 0;
+    private int height;
 
     /**
      *
@@ -39,13 +39,14 @@ public class LedPanel extends JPanel
     /**
      * Erstellt ein neues {@link LedPanel} Object.
      *
-     * @param b1 {@link Matrix}
+     * @param matrix {@link Matrix}
      */
-    public LedPanel(final Matrix b1)
+    public LedPanel(final Matrix matrix)
     {
         super();
 
-        this.matrix = b1;
+        this.matrix = matrix;
+
         setBackground(null);
         setLayout(null);
         setDoubleBuffered(true);
@@ -76,14 +77,14 @@ public class LedPanel extends JPanel
     {
         super.paintComponent(g);
 
-        this.matrix.b(g, getWidth(), getHeight());
+        this.matrix.paint(g, getWidth(), getHeight());
 
         if (this.displayElement == null)
         {
             return;
         }
 
-        this.matrix.b(g, this.displayElement, getWidth(), getHeight());
+        this.matrix.paint(g, this.displayElement, getWidth(), getHeight());
     }
 
     /**

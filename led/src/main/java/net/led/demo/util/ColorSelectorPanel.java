@@ -96,6 +96,7 @@ public class ColorSelectorPanel extends JPanel implements ActionListener
         this.color = color;
         this.id = id;
         this.listener = listener;
+
         createGUI();
     }
 
@@ -103,12 +104,14 @@ public class ColorSelectorPanel extends JPanel implements ActionListener
      * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
-    public void actionPerformed(final ActionEvent e)
+    public void actionPerformed(final ActionEvent event)
     {
-        String command = e.getActionCommand();
+        String command = event.getActionCommand();
+
         if (command.equals(this.displayLabel))
         {
             Color newColor = JColorChooser.showDialog(ColorSelectorPanel.this, "Choose a color", this.color);
+
             if (newColor != null)
             {
                 this.selectButton.setBackground(newColor);

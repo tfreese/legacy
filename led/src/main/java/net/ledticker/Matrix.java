@@ -420,52 +420,52 @@ public class Matrix
     /**
      *
      */
-    private Color backgroundColor = null;
+    private Color backgroundColor;
 
     /**
      *
      */
-    private int bottomInset = 0;
+    private int bottomInset;
 
     /**
      *
      */
-    private int dotHeight = 0;
+    private int dotHeight;
 
     /**
      *
      */
-    private Color dotOffColor = null;
+    private Color dotOffColor;
 
     /**
      *
      */
-    private int dotWidth = 0;
+    private int dotWidth;
 
     /**
      *
      */
-    private int elementGap = 0;
+    private int elementGap;
 
     /**
      *
      */
-    private int hGap = 0;
+    private int hGap;
 
     /**
      *
      */
-    private int tokenGap = 0;
+    private int tokenGap;
 
     /**
      *
      */
-    private int topInset = 0;
+    private int topInset;
 
     /**
      *
      */
-    private int vGap = 0;
+    private int vGap;
 
     /**
      * Erstellt ein neues {@link Matrix} Object.
@@ -624,18 +624,18 @@ public class Matrix
 
         String s = "WWW.LEDTICKER.NET::";
         int k1 = 0;
-        Graphics g1 = bufferedimage.getGraphics();
+        Graphics graphics = bufferedimage.getGraphics();
 
         for (int l1 = 0; l1 < s.length(); l1++)
         {
-            byte[] abyte0 = map.get(String.valueOf(s.charAt(l1)));
+            byte[] bytes = map.get(String.valueOf(s.charAt(l1)));
 
-            if (abyte0 == null)
+            if (bytes == null)
             {
-                abyte0 = map.get("?");
+                bytes = map.get("?");
             }
 
-            k1 = b(g1, abyte0, k1);
+            k1 = b(graphics, bytes, k1);
         }
 
         return bufferedimage;

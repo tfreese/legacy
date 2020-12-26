@@ -37,35 +37,38 @@ public class NumberToken extends Token
 
     /**
      * Creates a <tt>NumberToken</tt> with a specific ColorModel
-     * 
+     *
      * @param colorModel the ColorModel
      */
     public NumberToken(final ColorModel colorModel)
     {
         this();
+
         setColorModel(colorModel);
     }
 
     /**
      * Creates a <tt>NumberToken</tt> with the given <tt>NumberFormat</tt>
-     * 
+     *
      * @param numberFormat the representation's number format
      */
     public NumberToken(final NumberFormat numberFormat)
     {
         this.value = Double.NaN;
+
         setNumberFormat(numberFormat);
     }
 
     /**
      * Creates a <tt>NumberToken</tt> with the given <tt>NumberFormat</tt> and a specific ColorModel
-     * 
+     *
      * @param numberFormat the representation's number format
      * @param colorModel the ColorModel
      */
     public NumberToken(final NumberFormat numberFormat, final ColorModel colorModel)
     {
         this(numberFormat);
+
         setColorModel(colorModel);
     }
 
@@ -86,20 +89,21 @@ public class NumberToken extends Token
 
     /**
      * Gets the default <tt>NumberFormat</tt>
-     * 
+     *
      * @return the default <tt>NumberFormat</tt>
      */
     private NumberFormat getDefaultNumberFormat()
     {
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.ENGLISH);
-        numberFormat.setMinimumFractionDigits(2);
-        numberFormat.setMaximumFractionDigits(2);
-        return numberFormat;
+        NumberFormat nf = NumberFormat.getInstance(Locale.ENGLISH);
+        nf.setMinimumFractionDigits(2);
+        nf.setMaximumFractionDigits(2);
+
+        return nf;
     }
 
     /**
      * Gets the representation of the number
-     * 
+     *
      * @see net.led.elements.Token#getDisplayValue()
      */
     @Override
@@ -111,7 +115,7 @@ public class NumberToken extends Token
     /**
      * Sets the <tt>NumberFormat</tt> used to represent the value. If the given value is <tt>null</tt> a default <tt>NumberFormat</tt> is assigned, using the
      * <tt>ENGLISH</tt> <tt>Locale</tt> and a two fraction digit representation
-     * 
+     *
      * @param newValue the new <tt>NumberFormat</tt>
      */
     public void setNumberFormat(NumberFormat newValue)
@@ -127,7 +131,7 @@ public class NumberToken extends Token
 
     /**
      * Sets the value of the token
-     * 
+     *
      * @see net.led.elements.Token#setValue(java.lang.Object)
      * @throws IllegalArgumentException if the given value is not a <tt>Number</tt>
      */
@@ -138,6 +142,7 @@ public class NumberToken extends Token
         {
             this.value = ((Number) newValue).doubleValue();
             formatDisplayValue();
+
             return;
         }
 

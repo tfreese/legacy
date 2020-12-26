@@ -10,17 +10,17 @@ public class Browser
     /**
      *
      */
-    private static String o = null;
+    private static String o;
 
     /**
      *
      */
-    private static int r = 0;
+    private static int r;
 
     /**
      *
      */
-    private static String shell = null;
+    private static String shell;
 
     static
     {

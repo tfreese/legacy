@@ -38,12 +38,13 @@ public class TimeToken extends Token
 
     /**
      * Creates a <tt>NumberToken</tt> with a specific ColorModel
-     * 
+     *
      * @param colorModel the ColorModel
      */
     public TimeToken(final ColorModel colorModel)
     {
         this();
+
         setColorModel(colorModel);
     }
 
@@ -57,7 +58,7 @@ public class TimeToken extends Token
 
     /**
      * Gets the representation of the number
-     * 
+     *
      * @see net.led.elements.Token#getDisplayValue()
      */
     @Override
@@ -81,7 +82,7 @@ public class TimeToken extends Token
 
     /**
      * Sets the value of the token
-     * 
+     *
      * @see net.led.elements.Token#setValue(java.lang.Object)
      * @throws IllegalArgumentException if the given value is not a <tt>Number</tt>
      */

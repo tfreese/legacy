@@ -79,6 +79,7 @@ public class LedDialog extends JDialog
     public LedDialog(final Frame owner)
     {
         super(owner);
+
         initialize();
         createTimer();
     }
@@ -88,7 +89,7 @@ public class LedDialog extends JDialog
      */
     private void createTimer()
     {
-        this.timer = new Timer(3000, e -> {
+        this.timer = new Timer(3000, event -> {
             if (!isShowing())
             {
                 return;

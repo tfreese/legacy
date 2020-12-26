@@ -57,12 +57,12 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
     /**
      *
      */
-    private TimeDisplayElement displayElement = null;
+    private TimeDisplayElement displayElement;
 
     /**
      *
      */
-    private JFrame displayFrame = null;
+    private JFrame displayFrame;
 
     /**
      *
@@ -82,7 +82,7 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
     /**
      *
      */
-    private LedDisplay ledDisplay = null;
+    private LedDisplay ledDisplay;
 
     /**
      *
@@ -117,7 +117,7 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
     /**
      *
      */
-    private TimeProvider timeProvider = null;
+    private TimeProvider timeProvider;
 
     /**
      *
@@ -155,9 +155,9 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
      * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
-    public void actionPerformed(final ActionEvent e)
+    public void actionPerformed(final ActionEvent event)
     {
-        String command = e.getActionCommand();
+        String command = event.getActionCommand();
 
         if (command.equals("setDotSize"))
         {

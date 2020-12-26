@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -113,13 +114,13 @@ public class YahooProvider implements Runnable
         String line = null;
         StringTokenizer st;
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream())))
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8)))
         {
             line = br.readLine();
         }
-        catch (IOException e2)
+        catch (IOException ex)
         {
-            // Ignore
+            // Empty
         }
 
         if (line != null)

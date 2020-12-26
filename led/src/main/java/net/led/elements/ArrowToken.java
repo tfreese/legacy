@@ -23,7 +23,7 @@ public final class ArrowToken extends Token
     /**
      *
      */
-    private Object g = null;
+    private Object value;
 
     /**
      * Erstellt ein neues {@link ArrowToken} Object.
@@ -52,7 +52,7 @@ public final class ArrowToken extends Token
      */
     public Object getArrowType()
     {
-        return this.g;
+        return this.value;
     }
 
     /**
@@ -68,8 +68,8 @@ public final class ArrowToken extends Token
      * @see net.led.elements.Token#setValue(java.lang.Object)
      */
     @Override
-    public void setValue(final Object obj)
+    public void setValue(final Object value)
     {
-        this.g = obj;
+        this.value = value;
     }
 }

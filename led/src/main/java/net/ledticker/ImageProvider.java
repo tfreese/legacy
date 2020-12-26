@@ -1,6 +1,7 @@
 package net.ledticker;
 
 import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import net.led.elements.Element;
@@ -13,27 +14,27 @@ public class ImageProvider
     /**
      *
      */
-    private Component component = null;
+    private Component component;
 
     /**
      *
      */
-    private Element element = null;
+    private Element element;
 
     /**
      *
      */
-    private Image image = null;
+    private Image image;
 
     /**
      *
      */
-    private Matrix matrix = null;
+    private Matrix matrix;
 
     /**
      *
      */
-    private Object object = null;
+    private Object object;
 
     /**
      * Erstellt ein neues {@link ImageProvider} Object.
@@ -50,11 +51,12 @@ public class ImageProvider
         this.element = element;
         this.matrix = matrix;
         this.component = component;
+
         createImage();
     }
 
     /**
-     * 
+     *
      */
     public void createImage()
     {
@@ -73,7 +75,7 @@ public class ImageProvider
 
         if (this.image != null)
         {
-            java.awt.Graphics g = this.image.getGraphics();
+            Graphics g = this.image.getGraphics();
             this.matrix.b(g, this.image.getWidth(null), this.image.getHeight(null));
             this.matrix.b(g, this.element);
         }

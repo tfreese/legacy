@@ -15,7 +15,7 @@ public abstract class Token
      */
     public Token()
     {
-        this(((new DefaultColorModel())));
+        this(new DefaultColorModel());
     }
 
     /**

@@ -58,12 +58,12 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
     /**
      *
      */
-    private StockDisplayElement displayElement = null;
+    private StockDisplayElement displayElement;
 
     /**
      *
      */
-    private JFrame displayFrame = null;
+    private JFrame displayFrame;
 
     /**
      *
@@ -83,7 +83,7 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
     /**
      *
      */
-    private LedDisplay ledDisplay = null;
+    private LedDisplay ledDisplay;
 
     /**
      *
@@ -128,7 +128,7 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
     /**
      *
      */
-    private YahooProvider yahooProvider = null;
+    private YahooProvider yahooProvider;
 
     /**
      * Erstellt ein neues {@link LedDisplayDemo} Object.
@@ -154,9 +154,9 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
      * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
-    public void actionPerformed(final ActionEvent e)
+    public void actionPerformed(final ActionEvent event)
     {
-        String command = e.getActionCommand();
+        String command = event.getActionCommand();
 
         if (command.equals("setDotSize"))
         {
