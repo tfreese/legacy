@@ -1,13 +1,19 @@
-package net.led.demo.provider;
+package net.led.provider;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * @author Thomas Freese
  */
-public class TimeProvider implements Runnable
+public class YahooProvider implements Runnable
 {
     /**
      *
@@ -25,9 +31,9 @@ public class TimeProvider implements Runnable
     private List<String> symbols = new ArrayList<>();
 
     /**
-     * Erstellt ein neues {@link TimeProvider} Object.
+     * Erstellt ein neues {@link YahooProvider} Object.
      */
-    public TimeProvider()
+    public YahooProvider()
     {
         super();
     }
@@ -60,13 +66,113 @@ public class TimeProvider implements Runnable
     }
 
     /**
+     * @param s String
+     * @return Double
+     */
+    private Double parseDouble(String s)
+    {
+        if (s.startsWith("\""))
+        {
+            s = s.substring(1, s.length() - 1);
+        }
+
+        if (s.endsWith("%"))
+        {
+            s = s.substring(0, s.length() - 1);
+        }
+
+        try
+        {
+            return Double.valueOf(s);
+        }
+        catch (NumberFormatException ex)
+        {
+            return null;
+        }
+    }
+
+    /**
      * Reads data from Yahoo! for each symbol.
      *
      * @param symbol String
      */
     private void readSymbolData(final String symbol)
     {
-        sendTime(new Date());
+        String feedURL = "http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=sl9p4&e=.csv";
+        URL url = null;
+
+        try
+        {
+            url = new URL(feedURL);
+        }
+        catch (MalformedURLException ex)
+        {
+            System.out.println("Unable to open connection !");
+            return;
+        }
+
+        String line = null;
+        StringTokenizer st;
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8)))
+        {
+            line = br.readLine();
+        }
+        catch (IOException ex)
+        {
+            // Empty
+        }
+
+        if (line != null)
+        {
+            st = new StringTokenizer(line, ",");
+
+            if (st.hasMoreTokens())
+            {
+                String name = st.nextToken();
+
+                if (name.startsWith("\""))
+                {
+                    name = name.substring(1, name.length() - 1);
+                }
+
+                if (!(name.equals(symbol)))
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            Double last = null;
+
+            if (st.hasMoreTokens())
+            {
+                last = parseDouble(st.nextToken());
+            }
+
+            Double changePercent = null;
+
+            if (st.hasMoreTokens())
+            {
+                changePercent = parseDouble(st.nextToken());
+
+                // Sometimes the feed sends invalid data (like -9999.00)
+                // for change percent
+                if (Math.abs(changePercent.doubleValue()) > 50)
+                {
+                    changePercent = Double.NaN;
+                }
+            }
+
+            if ((last != null) && (changePercent != null))
+            {
+                Stock stock = new Stock(symbol, last, changePercent);
+                sendStock(stock);
+            }
+        }
     }
 
     /**
@@ -150,24 +256,24 @@ public class TimeProvider implements Runnable
                 {
                     Thread.sleep(time);
                 }
-                catch (InterruptedException e1)
+                catch (InterruptedException ex)
                 {
-                    // Ignore
+                    // Empty
                 }
             }
         }
     }
 
     /**
-     * @param newValue {@link Date}
+     * @param stock {@link Stock}
      */
-    private void sendTime(final Date newValue)
+    private void sendStock(final Stock stock)
     {
         synchronized (this.listeners)
         {
             for (Object element : this.listeners)
             {
-                ((UpdateListener) element).update(newValue);
+                ((UpdateListener) element).update(stock);
             }
         }
     }
@@ -177,7 +283,7 @@ public class TimeProvider implements Runnable
      */
     public void start()
     {
-        this.feedThread = new Thread(this, "Time Provider");
+        this.feedThread = new Thread(this, "Yahoo Provider");
         this.feedThread.start();
     }
 

@@ -1,10 +1,11 @@
-package net.led.demo.util;
+package net.led.util;
 
 import java.awt.Color;
 
 /**
  * @author Thomas Freese
  */
+@FunctionalInterface
 public interface ColorSelectorListener
 {
     /**

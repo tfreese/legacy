@@ -11,7 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import net.led.demo.elements.display.TextDisplayElement;
+import net.led.elements.TextDisplayElement;
 import net.leddisplay.LedDisplay;
 import net.leddisplay.LedDisplayFactory;
 

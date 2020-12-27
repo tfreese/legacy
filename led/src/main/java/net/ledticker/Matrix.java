@@ -487,12 +487,105 @@ public class Matrix
     }
 
     /**
+     * @return {@link Image}
+     */
+    protected Image getDefaultImage()
+    {
+        int height = getHeigth();
+        int width = 10 * (this.hGap + this.dotWidth);
+
+        BufferedImage bufferedimage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        paintDots(bufferedimage.getGraphics(), width, height);
+
+        String s = "WWW.LEDTICKER.NET::";
+        int x = 0;
+        Graphics graphics = bufferedimage.getGraphics();
+
+        for (int i = 0; i < s.length(); i++)
+        {
+            byte[] bytes = map.get(String.valueOf(s.charAt(i)));
+
+            if (bytes == null)
+            {
+                bytes = map.get("?");
+            }
+
+            x = paint(graphics, bytes, x);
+        }
+
+        return bufferedimage;
+    }
+
+    /**
+     * @return int
+     */
+    public int getHeigth()
+    {
+        return ((this.topInset + this.bottomInset + 7) * (this.dotHeight + this.vGap)) - this.vGap;
+    }
+
+    /**
+     * @return {@link Image}
+     */
+    public Image getImage()
+    {
+        int heigth = getHeigth();
+        int width = 10 * (this.hGap + this.dotWidth);
+
+        BufferedImage bufferedimage = new BufferedImage(width, heigth, BufferedImage.TYPE_INT_ARGB);
+        paintDots(bufferedimage.getGraphics(), width, heigth);
+
+        return bufferedimage;
+    }
+
+    /**
+     * @param token {@link Token}
+     * @return int
+     */
+    private int getWidth(final Token token)
+    {
+        int width = 6 * (this.dotWidth + this.hGap);
+
+        if (token instanceof ArrowToken)
+        {
+            return width;
+        }
+
+        return token.getDisplayValue().length() * width;
+    }
+
+    /**
+     * @param tickerelement {@link Element}
+     * @return int
+     */
+    public int getWidthOf(final Element tickerelement)
+    {
+        int width = 0;
+        Token[] tokens = tickerelement.getTokens();
+
+        for (int i = 0; i < tokens.length; i++)
+        {
+            width += getWidth(tokens[i]);
+            width += ((i == (tokens.length - 1)) ? 0 : (this.tokenGap * (this.hGap + this.dotWidth)));
+        }
+
+        width += (this.elementGap * (this.hGap + this.dotWidth));
+
+        if ((width % (this.hGap + this.dotWidth)) != 0)
+        {
+            width += ((this.hGap + this.dotWidth) - (width % (this.hGap + this.dotWidth)));
+        }
+
+        return width;
+    }
+
+    /**
      * @param graphics {@link Graphics}
      * @param bytes byte[]
      * @param x int
      * @return int
      */
-    private int b(final Graphics graphics, final byte[] bytes, int x)
+    private int paint(final Graphics graphics, final byte[] bytes, int x)
     {
         Color color = graphics.getColor();
 
@@ -518,181 +611,90 @@ public class Matrix
     }
 
     /**
-     * @param g1 {@link Graphics}
+     * @param graphics {@link Graphics}
      * @param tickerelement {@link Element}
      */
-    public void b(final Graphics g1, final Element tickerelement)
+    public void paint(final Graphics graphics, final Element tickerelement)
     {
-        Token[] atoken = tickerelement.getTokens();
-        int i1 = 0;
+        Token[] tokens = tickerelement.getTokens();
+        int x = 0;
 
-        for (Token element : atoken)
+        for (Token token : tokens)
         {
-            i1 = b(g1, element, i1);
+            x = paint(graphics, token, x);
         }
     }
 
     /**
-     * @param g1 {@link Graphics}
-     * @param i1 int
-     * @param j1 int
-     */
-    public void b(final Graphics g1, final int i1, final int j1)
-    {
-        g1.setColor(this.backgroundColor);
-        g1.fillRect(0, 0, i1, j1);
-        g1.setColor(this.dotOffColor);
-
-        for (int k1 = 0; k1 < j1; k1 += this.dotHeight)
-        {
-            g1.fillRect(0, k1, i1, this.dotHeight);
-            k1 += this.vGap;
-        }
-
-        g1.setColor(this.backgroundColor);
-
-        for (int l1 = this.dotWidth; l1 < i1; l1 += this.dotWidth)
-        {
-            g1.fillRect(l1, 0, this.hGap, j1);
-            l1 += this.hGap;
-        }
-    }
-
-    /**
-     * @param g1 {@link Graphics}
+     * @param graphics {@link Graphics}
      * @param token {@link Token}
-     * @param i1 int
+     * @param x int
      * @return int
      */
-    private int b(final Graphics g1, final Token token, int i1)
+    private int paint(final Graphics graphics, final Token token, int x)
     {
         Color color = token.getColorModel().getColor();
-        g1.setColor(color);
+        graphics.setColor(color);
 
         if (token instanceof ArrowToken)
         {
-            byte[] abyte0 = map.get(((ArrowToken) token).getArrowType());
-            i1 = b(g1, abyte0, i1);
+            byte[] bytes = map.get(((ArrowToken) token).getArrowType());
+            x = paint(graphics, bytes, x);
         }
         else
         {
             String s = token.getDisplayValue();
 
-            for (int j1 = 0; j1 < s.length(); j1++)
+            for (int i = 0; i < s.length(); i++)
             {
-                byte[] abyte1 = map.get(String.valueOf(s.charAt(j1)));
+                byte[] bytes = map.get(String.valueOf(s.charAt(i)));
 
-                if (abyte1 == null)
+                if (bytes == null)
                 {
-                    abyte1 = map.get("?");
+                    bytes = map.get("?");
                 }
 
-                i1 = b(g1, abyte1, i1);
+                x = paint(graphics, bytes, x);
             }
         }
 
-        i1 += (this.tokenGap * (this.hGap + this.dotWidth));
+        x += (this.tokenGap * (this.hGap + this.dotWidth));
 
-        return i1;
+        return x;
     }
 
     /**
-     * @param token {@link Token}
-     * @return int
+     * @param graphics {@link Graphics}
+     * @param width int
+     * @param height int
      */
-    private int b(final Token token)
+    public void paintDots(final Graphics graphics, final int width, final int height)
     {
-        int i1 = 6 * (this.dotWidth + this.hGap);
+        graphics.setColor(this.backgroundColor);
+        graphics.fillRect(0, 0, width, height);
+        graphics.setColor(this.dotOffColor);
 
-        if (token instanceof ArrowToken)
+        for (int y = 0; y < height; y += this.dotHeight)
         {
-            return i1;
+            graphics.fillRect(0, y, width, this.dotHeight);
+            y += this.vGap;
         }
 
-        return token.getDisplayValue().length() * i1;
-    }
+        graphics.setColor(this.backgroundColor);
 
-    /**
-     * @return {@link Image}
-     */
-    protected Image getDefaultImage()
-    {
-        int i1 = getHeigth();
-        int j1 = 10 * (this.hGap + this.dotWidth);
-        BufferedImage bufferedimage = new BufferedImage(j1, i1, 2);
-        b(bufferedimage.getGraphics(), j1, i1);
-
-        String s = "WWW.LEDTICKER.NET::";
-        int k1 = 0;
-        Graphics graphics = bufferedimage.getGraphics();
-
-        for (int l1 = 0; l1 < s.length(); l1++)
+        for (int x = this.dotWidth; x < width; x += this.dotWidth)
         {
-            byte[] bytes = map.get(String.valueOf(s.charAt(l1)));
-
-            if (bytes == null)
-            {
-                bytes = map.get("?");
-            }
-
-            k1 = b(graphics, bytes, k1);
+            graphics.fillRect(x, 0, this.hGap, height);
+            x += this.hGap;
         }
-
-        return bufferedimage;
     }
 
     /**
-     * @return int
+     * @param backgroundColor {@link Color}
      */
-    public int getHeigth()
+    public void setBackgroundColor(final Color backgroundColor)
     {
-        return ((this.topInset + this.bottomInset + 7) * (this.dotHeight + this.vGap)) - this.vGap;
-    }
-
-    /**
-     * @return {@link Image}
-     */
-    public Image getImage()
-    {
-        int heigth = getHeigth();
-        int width = 10 * (this.hGap + this.dotWidth);
-        BufferedImage bufferedimage = new BufferedImage(width, heigth, 2);
-        b(bufferedimage.getGraphics(), width, heigth);
-
-        return bufferedimage;
-    }
-
-    /**
-     * @param tickerelement {@link Element}
-     * @return int
-     */
-    public int getWidthOf(final Element tickerelement)
-    {
-        int i1 = 0;
-        Token[] atoken = tickerelement.getTokens();
-
-        for (int j1 = 0; j1 < atoken.length; j1++)
-        {
-            i1 += b(atoken[j1]);
-            i1 += ((j1 == (atoken.length - 1)) ? 0 : (this.tokenGap * (this.hGap + this.dotWidth)));
-        }
-
-        i1 += (this.elementGap * (this.hGap + this.dotWidth));
-
-        if ((i1 % (this.hGap + this.dotWidth)) != 0)
-        {
-            i1 += ((this.hGap + this.dotWidth) - (i1 % (this.hGap + this.dotWidth)));
-        }
-
-        return i1;
-    }
-
-    /**
-     * @param newValue {@link Color}
-     */
-    public void setBackgroundColor(final Color newValue)
-    {
-        this.backgroundColor = newValue;
+        this.backgroundColor = backgroundColor;
     }
 
     /**
@@ -706,36 +708,36 @@ public class Matrix
     }
 
     /**
-     * @param newValue {@link Color}
+     * @param dotOffColor {@link Color}
      */
-    public void setDotOffColor(final Color newValue)
+    public void setDotOffColor(final Color dotOffColor)
     {
-        this.dotOffColor = newValue;
+        this.dotOffColor = dotOffColor;
     }
 
     /**
-     * @param i1 int
-     * @param j1 int
+     * @param dotWidth int
+     * @param dotHeight int
      */
-    public void setDotSize(final int i1, final int j1)
+    public void setDotSize(final int dotWidth, final int dotHeight)
     {
-        this.dotWidth = i1;
-        this.dotHeight = j1;
+        this.dotWidth = dotWidth;
+        this.dotHeight = dotHeight;
     }
 
     /**
-     * @param newValue int
+     * @param elementGap int
      */
-    public void setElementGap(final int newValue)
+    public void setElementGap(final int elementGap)
     {
-        this.elementGap = newValue;
+        this.elementGap = elementGap;
     }
 
     /**
-     * @param newValue int
+     * @param tokenGap int
      */
-    public void setTokenGap(final int newValue)
+    public void setTokenGap(final int tokenGap)
     {
-        this.tokenGap = newValue;
+        this.tokenGap = tokenGap;
     }
 }

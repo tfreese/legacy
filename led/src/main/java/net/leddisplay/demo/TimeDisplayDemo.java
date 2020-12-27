@@ -22,11 +22,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
-import net.led.demo.elements.TimeDisplayElement;
-import net.led.demo.provider.TimeProvider;
-import net.led.demo.provider.UpdateListener;
-import net.led.demo.util.ColorSelectorListener;
-import net.led.demo.util.ColorSelectorPanel;
+import net.led.elements.TimeDisplayElement;
+import net.led.provider.TimeProvider;
+import net.led.provider.UpdateListener;
+import net.led.util.ColorSelectorListener;
+import net.led.util.ColorSelectorPanel;
 import net.leddisplay.LedDisplay;
 import net.leddisplay.LedDisplayFactory;
 
@@ -608,7 +608,7 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
     }
 
     /**
-     * @see net.led.demo.util.ColorSelectorListener#setColor(java.lang.String, java.awt.Color)
+     * @see net.led.util.ColorSelectorListener#setColor(java.lang.String, java.awt.Color)
      */
     @Override
     public void setColor(final String id, final Color color)
@@ -624,7 +624,7 @@ public class TimeDisplayDemo implements ActionListener, ColorSelectorListener, U
     }
 
     /**
-     * @see net.led.demo.provider.UpdateListener#update(java.lang.Object)
+     * @see net.led.provider.UpdateListener#update(java.lang.Object)
      */
     @Override
     public void update(final Object newValue)

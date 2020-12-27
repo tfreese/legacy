@@ -1,37 +1,34 @@
-package net.led.demo.elements.ticker;
+package net.led.elements;
 
 import java.awt.Color;
-import net.led.demo.tokens.TextToken;
-import net.led.elements.Token;
+import net.led.tokens.TextToken;
 
 /**
  * @author Thomas Freese
  */
-public class TextTickerElement extends AbstractTickerElement
+public class TextDisplayElement extends AbstractDisplayElement
 {
-
     /**
      *
      */
-    private TextToken textToken = null;
+    private TextToken textToken;
 
     /**
-     * Creates a <tt>TextTickerElement</tt> with a given display value
-     * 
+     * Creates a <tt>TextDisplayElement</tt> with a given display value
+     *
      * @param text the display value
      */
-    public TextTickerElement(final String text)
+    public TextDisplayElement(final String text)
     {
         super(new Token[1]);
 
         this.textToken = new TextToken(text);
-
         this.tokens[0] = this.textToken;
     }
 
     /**
      * Sets the color for the display value
-     * 
+     *
      * @param color the new color for the display value
      */
     public void setColor(final Color color)
@@ -41,7 +38,7 @@ public class TextTickerElement extends AbstractTickerElement
 
     /**
      * Sets the display value
-     * 
+     *
      * @param text the new display value
      */
     public void setText(final String text)

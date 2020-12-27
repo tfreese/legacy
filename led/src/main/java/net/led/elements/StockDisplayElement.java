@@ -1,12 +1,8 @@
-package net.led.demo.elements.display;
+package net.led.elements;
 
 import java.awt.Color;
-import net.led.demo.elements.StockColorModel;
-import net.led.demo.tokens.NumberToken;
-import net.led.demo.tokens.TextToken;
-import net.led.elements.ArrowToken;
-import net.led.elements.DefaultColorModel;
-import net.led.elements.Token;
+import net.led.tokens.NumberToken;
+import net.led.tokens.TextToken;
 
 /**
  * This is a sample element that extends <code>AbstractDisplayElement</code> - the abstrat class that represents a display's text base element.

@@ -1,12 +1,9 @@
-package net.led.demo.elements;
+package net.led.elements;
 
 import java.awt.Color;
-import net.led.demo.elements.display.AbstractDisplayElement;
-import net.led.demo.tokens.DateToken;
-import net.led.demo.tokens.TextToken;
-import net.led.demo.tokens.TimeToken;
-import net.led.elements.DefaultColorModel;
-import net.led.elements.Token;
+import net.led.tokens.DateToken;
+import net.led.tokens.TextToken;
+import net.led.tokens.TimeToken;
 
 /**
  * @author Thomas Freese

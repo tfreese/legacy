@@ -77,7 +77,7 @@ public class LedPanel extends JPanel
     {
         super.paintComponent(g);
 
-        this.matrix.paint(g, getWidth(), getHeight());
+        this.matrix.paintDots(g, getWidth(), getHeight());
 
         if (this.displayElement == null)
         {
@@ -93,6 +93,7 @@ public class LedPanel extends JPanel
     public void setDisplayElement(final Element newValue)
     {
         this.displayElement = newValue;
+
         repaint();
     }
 

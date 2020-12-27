@@ -76,8 +76,8 @@ public class ImageProvider
         if (this.image != null)
         {
             Graphics g = this.image.getGraphics();
-            this.matrix.b(g, this.image.getWidth(null), this.image.getHeight(null));
-            this.matrix.b(g, this.element);
+            this.matrix.paintDots(g, this.image.getWidth(null), this.image.getHeight(null));
+            this.matrix.paint(g, this.element);
         }
     }
 

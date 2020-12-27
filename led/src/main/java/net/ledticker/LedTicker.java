@@ -20,12 +20,12 @@ public interface LedTicker
     public JComponent getTickerComponent();
 
     /**
-     * 
+     *
      */
     public void pauseAnimation();
 
     /**
-     * 
+     *
      */
     public void removeAll();
 
@@ -40,10 +40,10 @@ public interface LedTicker
     public void setBackgroundColor(Color color);
 
     /**
-     * @param i int
-     * @param j int
+     * @param hGap int
+     * @param vGap int
      */
-    public void setDotGaps(int i, int j);
+    public void setDotGaps(int hGap, int vGap);
 
     /**
      * @param color {@link Color}
@@ -51,33 +51,33 @@ public interface LedTicker
     public void setDotOffColor(Color color);
 
     /**
-     * @param i int
-     * @param j int
+     * @param dotWidth int
+     * @param dotHeight int
      */
-    public void setDotSize(int i, int j);
+    public void setDotSize(int dotWidth, int dotHeight);
 
     /**
-     * @param i int
+     * @param elementGap int
      */
-    public void setElementGap(int i);
+    public void setElementGap(int elementGap);
 
     /**
-     * @param i int
+     * @param speed int
      */
-    public void setSpeed(int i);
+    public void setSpeed(int speed);
 
     /**
-     * @param i int
+     * @param tokenGap int
      */
-    public void setTokenGap(int i);
+    public void setTokenGap(int tokenGap);
 
     /**
-     * 
+     *
      */
     public void startAnimation();
 
     /**
-     * 
+     *
      */
     public void stopAnimation();
 
@@ -87,7 +87,7 @@ public interface LedTicker
     public void update(Element tickerelement);
 
     /**
-     * 
+     *
      */
     public void updateAll();
 }

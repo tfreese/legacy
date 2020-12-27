@@ -22,12 +22,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
-import net.led.demo.elements.display.StockDisplayElement;
-import net.led.demo.provider.Stock;
-import net.led.demo.provider.UpdateListener;
-import net.led.demo.provider.YahooProvider;
-import net.led.demo.util.ColorSelectorListener;
-import net.led.demo.util.ColorSelectorPanel;
+import net.led.elements.StockDisplayElement;
+import net.led.provider.Stock;
+import net.led.provider.UpdateListener;
+import net.led.provider.YahooProvider;
+import net.led.util.ColorSelectorListener;
+import net.led.util.ColorSelectorPanel;
 import net.leddisplay.LedDisplay;
 import net.leddisplay.LedDisplayFactory;
 
@@ -39,7 +39,6 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
     /**
      * @param args String[]
      */
-    @SuppressWarnings("unused")
     public static void main(final String[] args)
     {
         new LedDisplayDemo();
@@ -607,7 +606,7 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
     }
 
     /**
-     * @see net.led.demo.util.ColorSelectorListener#setColor(java.lang.String, java.awt.Color)
+     * @see net.led.util.ColorSelectorListener#setColor(java.lang.String, java.awt.Color)
      */
     @Override
     public void setColor(final String id, final Color color)
@@ -646,7 +645,7 @@ public class LedDisplayDemo implements ActionListener, ColorSelectorListener, Up
     }
 
     /**
-     * @see net.led.demo.provider.UpdateListener#update(java.lang.Object)
+     * @see net.led.provider.UpdateListener#update(java.lang.Object)
      */
     @Override
     public void update(final Object newValue)

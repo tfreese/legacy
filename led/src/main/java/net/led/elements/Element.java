@@ -9,5 +9,5 @@ public interface Element
     /**
      * @return {@link Token}[]
      */
-    public abstract Token[] getTokens();
+    public Token[] getTokens();
 }

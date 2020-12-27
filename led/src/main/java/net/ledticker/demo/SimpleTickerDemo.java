@@ -15,12 +15,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
-import net.led.demo.elements.ticker.StockTickerElement;
-import net.led.demo.provider.Stock;
-import net.led.demo.provider.UpdateListener;
-import net.led.demo.provider.YahooProvider;
-import net.led.demo.util.OptionsDialog;
-import net.led.demo.util.OptionsListener;
+import net.led.elements.StockDisplayElement;
+import net.led.provider.Stock;
+import net.led.provider.UpdateListener;
+import net.led.provider.YahooProvider;
+import net.led.util.OptionsDialog;
+import net.led.util.OptionsListener;
 import net.ledticker.LedTicker;
 import net.ledticker.LedTickerFactory;
 
@@ -50,27 +50,27 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
     /**
      *
      */
-    private Map<String, StockTickerElement> elements = new HashMap<>();
+    private Map<String, StockDisplayElement> elements = new HashMap<>();
 
     /**
      *
      */
-    private LedTicker ledTicker = null;
+    private LedTicker ledTicker;
 
     /**
      *
      */
-    private JPopupMenu menu = null;
+    private JPopupMenu menu;
 
     /**
      *
      */
-    private JFrame tickerFrame = null;
+    private JFrame tickerFrame;
 
     /**
      *
      */
-    private YahooProvider yahooProvider = null;
+    private YahooProvider yahooProvider;
 
     /**
      * Erstellt ein neues {@link SimpleTickerDemo} Object.
@@ -137,12 +137,12 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
     }
 
     /**
-     * @see net.led.demo.util.OptionsListener#addSymbol(java.lang.String)
+     * @see net.led.util.OptionsListener#addSymbol(java.lang.String)
      */
     @Override
     public void addSymbol(final String symbol)
     {
-        StockTickerElement ste = new StockTickerElement(symbol);
+        StockDisplayElement ste = new StockDisplayElement(symbol);
         this.elements.put(symbol, ste);
         this.ledTicker.addElement(ste);
         this.yahooProvider.addSymbol(symbol);
@@ -191,7 +191,7 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
 
         for (String initialSymbol : initialSymbols)
         {
-            StockTickerElement ste = new StockTickerElement(initialSymbol);
+            StockDisplayElement ste = new StockDisplayElement(initialSymbol);
             this.elements.put(ste.getSymbol(), ste);
             this.ledTicker.addElement(ste);
         }
@@ -256,12 +256,12 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
     }
 
     /**
-     * @see net.led.demo.util.OptionsListener#removeSymbol(java.lang.String)
+     * @see net.led.util.OptionsListener#removeSymbol(java.lang.String)
      */
     @Override
     public void removeSymbol(final String symbol)
     {
-        StockTickerElement ste = this.elements.get(symbol);
+        StockDisplayElement ste = this.elements.get(symbol);
 
         if (ste != null)
         {
@@ -272,14 +272,14 @@ public class SimpleTickerDemo implements ActionListener, OptionsListener, Update
     }
 
     /**
-     * @see net.led.demo.provider.UpdateListener#update(java.lang.Object)
+     * @see net.led.provider.UpdateListener#update(java.lang.Object)
      */
     @Override
     public void update(final Object newValue)
     {
         Stock stock = (Stock) newValue;
 
-        StockTickerElement ste = this.elements.get(stock.getID());
+        StockDisplayElement ste = this.elements.get(stock.getID());
 
         if (ste != null)
         {

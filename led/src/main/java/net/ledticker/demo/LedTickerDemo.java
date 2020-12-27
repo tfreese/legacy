@@ -25,12 +25,12 @@ import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import net.led.demo.elements.ticker.StockTickerElement;
-import net.led.demo.provider.Stock;
-import net.led.demo.provider.UpdateListener;
-import net.led.demo.provider.YahooProvider;
-import net.led.demo.util.ColorSelectorListener;
-import net.led.demo.util.ColorSelectorPanel;
+import net.led.elements.StockDisplayElement;
+import net.led.provider.Stock;
+import net.led.provider.UpdateListener;
+import net.led.provider.YahooProvider;
+import net.led.util.ColorSelectorListener;
+import net.led.util.ColorSelectorPanel;
 import net.ledticker.LedTicker;
 import net.ledticker.LedTickerFactory;
 
@@ -61,7 +61,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
     /**
      *
      */
-    private Map<String, StockTickerElement> elements = new HashMap<>();
+    private Map<String, StockDisplayElement> elements = new HashMap<>();
 
     /**
      *
@@ -165,7 +165,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
         {
             String name = this.stocksField.getText().toUpperCase();
             this.stocksField.setText(name);
-            StockTickerElement ste = this.elements.get(name);
+            StockDisplayElement ste = this.elements.get(name);
 
             if (ste != null)
             {
@@ -265,7 +265,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
      */
     private void addSymbol(final String symbol)
     {
-        StockTickerElement ste = new StockTickerElement(symbol);
+        StockDisplayElement ste = new StockDisplayElement(symbol);
         ste.setStockUpColor(this.stockUpColor);
         ste.setStockNeutralColor(this.stockNeutralColor);
         ste.setStockDownColor(this.stockDownColor);
@@ -589,7 +589,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
     }
 
     /**
-     * @see net.led.demo.util.ColorSelectorListener#setColor(java.lang.String, java.awt.Color)
+     * @see net.led.util.ColorSelectorListener#setColor(java.lang.String, java.awt.Color)
      */
     @Override
     public void setColor(final String id, final Color color)
@@ -606,7 +606,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
         {
             this.symbolColor = color;
 
-            for (StockTickerElement ste : this.elements.values())
+            for (StockDisplayElement ste : this.elements.values())
             {
                 ste.setSymbolColor(color);
             }
@@ -617,7 +617,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
         {
             this.stockUpColor = color;
 
-            for (StockTickerElement ste : this.elements.values())
+            for (StockDisplayElement ste : this.elements.values())
             {
                 ste.setStockUpColor(color);
             }
@@ -628,7 +628,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
         {
             this.stockNeutralColor = color;
 
-            for (StockTickerElement ste : this.elements.values())
+            for (StockDisplayElement ste : this.elements.values())
             {
                 ste.setStockNeutralColor(color);
             }
@@ -639,7 +639,7 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
         {
             this.stockDownColor = color;
 
-            for (StockTickerElement ste : this.elements.values())
+            for (StockDisplayElement ste : this.elements.values())
             {
                 ste.setStockDownColor(color);
             }
@@ -658,14 +658,14 @@ public class LedTickerDemo implements ActionListener, ChangeListener, UpdateList
     }
 
     /**
-     * @see net.led.demo.provider.UpdateListener#update(java.lang.Object)
+     * @see net.led.provider.UpdateListener#update(java.lang.Object)
      */
     @Override
     public void update(final Object newValue)
     {
         Stock stock = (Stock) newValue;
 
-        StockTickerElement ste = this.elements.get(stock.getID());
+        StockDisplayElement ste = this.elements.get(stock.getID());
 
         if (ste != null)
         {

@@ -1,16 +1,10 @@
-package net.led.demo.elements.display;
-
-import net.led.elements.Element;
-import net.led.elements.Token;
+package net.led.elements;
 
 /**
- * Abstract implementation of the {@net.leddisplay.elements.DisplayElement
- *
- * } interface
+ * Abstract implementation of the {@overload.ledticker.elements.TickerElement } interface
  */
 public abstract class AbstractDisplayElement implements Element
 {
-
     /**
      * The element's tokens
      */
@@ -18,19 +12,19 @@ public abstract class AbstractDisplayElement implements Element
 
     /**
      * Creates an element without tokens
-     * 
-     * @param newValue {@link Token}[]
+     *
+     * @param tokens {@link Token}[]
      */
-    protected AbstractDisplayElement(final Token[] newValue)
+    protected AbstractDisplayElement(final Token[] tokens)
     {
         super();
 
-        if (newValue == null)
+        if (tokens == null)
         {
             throw new IllegalArgumentException("tokens array is null");
         }
 
-        this.tokens = newValue;
+        this.tokens = tokens;
     }
 
     /**

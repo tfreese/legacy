@@ -429,7 +429,7 @@ public class Matrix
     /**
      *
      */
-    private int bottom;
+    private int bottomInset;
 
     /**
      *
@@ -464,17 +464,17 @@ public class Matrix
     /**
      *
      */
-    private int left;
+    private int leftInset;
 
     /**
      *
      */
-    private int right;
+    private int rightInset;
 
     /**
      *
      */
-    private int top;
+    private int topInset;
 
     /**
      *
@@ -490,10 +490,10 @@ public class Matrix
 
         this.gap = 2;
         this.i = 0;
-        this.top = 0;
-        this.left = 0;
-        this.bottom = 0;
-        this.right = 0;
+        this.topInset = 0;
+        this.leftInset = 0;
+        this.bottomInset = 0;
+        this.rightInset = 0;
         this.anchor = 0;
         this.hGap = 1;
         this.vGap = 1;
@@ -512,12 +512,12 @@ public class Matrix
     }
 
     /**
-     * @param i1 int
-     * @param j1 int
+     * @param width int
+     * @param height int
      * @param k1 int
      * @return {@link Point}
      */
-    private Point b(final int i1, final int j1, final int k1)
+    private Point getAnchorPoint(final int width, final int height, final int k1)
     {
         Point point = new Point();
         byte byte0 = 7;
@@ -525,48 +525,48 @@ public class Matrix
         switch (this.anchor)
         {
             case 0: // '\0'
-                point.x = (this.left + ((i1 - k1 - this.right - this.left) / 2)) * (this.dotWidth + this.hGap);
-                point.y = (this.top + ((j1 - byte0 - this.top - this.bottom) / 2)) * (this.dotHeight + this.vGap);
+                point.x = (this.leftInset + ((width - k1 - this.rightInset - this.leftInset) / 2)) * (this.dotWidth + this.hGap);
+                point.y = (this.topInset + ((height - byte0 - this.topInset - this.bottomInset) / 2)) * (this.dotHeight + this.vGap);
                 break;
 
             case 1: // '\001'
-                point.x = (this.left + ((i1 - k1 - this.right - this.left) / 2)) * (this.dotWidth + this.hGap);
-                point.y = this.top * (this.dotHeight + this.vGap);
+                point.x = (this.leftInset + ((width - k1 - this.rightInset - this.leftInset) / 2)) * (this.dotWidth + this.hGap);
+                point.y = this.topInset * (this.dotHeight + this.vGap);
                 break;
 
             case 4: // '\004'
-                point.x = (this.left + ((i1 - k1 - this.right - this.left) / 2)) * (this.dotWidth + this.hGap);
-                point.y = (j1 - byte0 - this.bottom) * (this.dotHeight + this.vGap);
+                point.x = (this.leftInset + ((width - k1 - this.rightInset - this.leftInset) / 2)) * (this.dotWidth + this.hGap);
+                point.y = (height - byte0 - this.bottomInset) * (this.dotHeight + this.vGap);
                 break;
 
             case 3: // '\003'
-                point.x = ((i1 - k1 - this.right) + 1) * (this.dotWidth + this.hGap);
-                point.y = (this.top + ((j1 - byte0 - this.top - this.bottom) / 2)) * (this.dotHeight + this.vGap);
+                point.x = ((width - k1 - this.rightInset) + 1) * (this.dotWidth + this.hGap);
+                point.y = (this.topInset + ((height - byte0 - this.topInset - this.bottomInset) / 2)) * (this.dotHeight + this.vGap);
                 break;
 
             case 2: // '\002'
-                point.x = this.left * (this.dotWidth + this.hGap);
-                point.y = (this.top + ((j1 - byte0 - this.top - this.bottom) / 2)) * (this.dotHeight + this.vGap);
+                point.x = this.leftInset * (this.dotWidth + this.hGap);
+                point.y = (this.topInset + ((height - byte0 - this.topInset - this.bottomInset) / 2)) * (this.dotHeight + this.vGap);
                 break;
 
             case 6: // '\006'
-                point.x = ((i1 - k1 - this.right) + 1) * (this.dotWidth + this.hGap);
-                point.y = this.top * (this.dotHeight + this.vGap);
+                point.x = ((width - k1 - this.rightInset) + 1) * (this.dotWidth + this.hGap);
+                point.y = this.topInset * (this.dotHeight + this.vGap);
                 break;
 
             case 5: // '\005'
-                point.x = this.left * (this.dotWidth + this.hGap);
-                point.y = this.top * (this.dotHeight + this.vGap);
+                point.x = this.leftInset * (this.dotWidth + this.hGap);
+                point.y = this.topInset * (this.dotHeight + this.vGap);
                 break;
 
             case 8: // '\b'
-                point.x = ((i1 - k1 - this.right) + 1) * (this.dotWidth + this.hGap);
-                point.y = (j1 - byte0 - this.bottom) * (this.dotHeight + this.vGap);
+                point.x = ((width - k1 - this.rightInset) + 1) * (this.dotWidth + this.hGap);
+                point.y = (height - byte0 - this.bottomInset) * (this.dotHeight + this.vGap);
                 break;
 
             case 7: // '\007'
-                point.x = this.left * (this.dotWidth + this.hGap);
-                point.y = (j1 - byte0 - this.bottom) * (this.dotHeight + this.vGap);
+                point.x = this.leftInset * (this.dotWidth + this.hGap);
+                point.y = (height - byte0 - this.bottomInset) * (this.dotHeight + this.vGap);
                 break;
 
             default:
@@ -577,27 +577,28 @@ public class Matrix
     }
 
     /**
-     * @param token {@link Token}
-     * @return int
-     */
-    private int b(final Token token)
-    {
-        int i1 = 6 * (this.dotWidth + this.hGap);
-
-        if (token instanceof ArrowToken)
-        {
-            return i1;
-        }
-
-        return token.getDisplayValue().length() * i1;
-    }
-
-    /**
      * @return int
      */
     public int getHeigth()
     {
         return (7 * (this.dotHeight + this.vGap)) - this.vGap;
+        // return ((this.topInset + this.bottomInset + 7) * (this.dotHeight + this.vGap)) - this.vGap;
+    }
+
+    /**
+     * @param token {@link Token}
+     * @return int
+     */
+    private int getWidth(final Token token)
+    {
+        int width = 6 * (this.dotWidth + this.hGap);
+
+        if (token instanceof ArrowToken)
+        {
+            return width;
+        }
+
+        return token.getDisplayValue().length() * width;
     }
 
     /**
@@ -607,12 +608,12 @@ public class Matrix
     public int getWidthOf(final Element displayelement)
     {
         int width = 0;
-        Token[] atoken = displayelement.getTokens();
+        Token[] tokens = displayelement.getTokens();
 
-        for (int j1 = 0; j1 < atoken.length; j1++)
+        for (int n = 0; n < tokens.length; n++)
         {
-            width += b(atoken[j1]);
-            width += ((j1 == (atoken.length - 1)) ? 0 : (this.gap * (this.hGap + this.dotWidth)));
+            width += getWidth(tokens[n]);
+            width += ((n == (tokens.length - 1)) ? 0 : (this.gap * (this.hGap + this.dotWidth)));
         }
 
         width += (this.i * (this.hGap + this.dotWidth));
@@ -658,62 +659,36 @@ public class Matrix
     }
 
     /**
-     * @param g1 {@link Graphics}
+     * @param graphics {@link Graphics}
      * @param displayelement {@link Element}
-     * @param i1 int
-     * @param j1 int
-     */
-    public void paint(final Graphics g1, final Element displayelement, int i1, int j1)
-    {
-        Token[] atoken = displayelement.getTokens();
-        int k1 = (int) Math.ceil(getWidthOf(displayelement) / (this.dotWidth + this.hGap));
-        j1 /= (this.dotHeight + this.vGap);
-        i1 /= (this.dotWidth + this.hGap);
-
-        Point point = b(i1, j1, k1);
-        int l1 = point.x;
-        int i2 = point.y;
-
-        for (Token element : atoken)
-        {
-            l1 = paint(g1, element, l1, i2);
-        }
-    }
-
-    /**
-     * @param g1 {@link Graphics}
      * @param width int
      * @param height int
      */
-    public void paint(final Graphics g1, final int width, final int height)
+    public void paint(final Graphics graphics, final Element displayelement, int width, int height)
     {
-        g1.setColor(this.backgroundColor);
-        g1.fillRect(0, 0, width, height);
-        g1.setColor(this.dotOffColor);
+        Token[] tokens = displayelement.getTokens();
+        int k1 = (int) Math.ceil(getWidthOf(displayelement) / (this.dotWidth + this.hGap));
+        height /= (this.dotHeight + this.vGap);
+        width /= (this.dotWidth + this.hGap);
 
-        for (int k1 = 0; k1 < height; k1 += this.dotHeight)
+        Point point = getAnchorPoint(width, height, k1);
+        int x = point.x;
+        int y = point.y;
+
+        for (Token token : tokens)
         {
-            g1.fillRect(0, k1, width, this.dotHeight);
-            k1 += this.vGap;
-        }
-
-        g1.setColor(this.backgroundColor);
-
-        for (int l1 = this.dotWidth; l1 < width; l1 += this.dotWidth)
-        {
-            g1.fillRect(l1, 0, this.hGap, height);
-            l1 += this.hGap;
+            x = paint(graphics, token, x, y);
         }
     }
 
     /**
      * @param graphics {@link Graphics}
      * @param token Token
-     * @param i1 int
-     * @param j1 int
+     * @param x int
+     * @param offset int
      * @return int
      */
-    private int paint(final Graphics graphics, final Token token, int i1, final int j1)
+    private int paint(final Graphics graphics, final Token token, int x, final int offset)
     {
         Color color = token.getColorModel().getColor();
         graphics.setColor(color);
@@ -721,7 +696,7 @@ public class Matrix
         if (token instanceof ArrowToken)
         {
             byte[] bytes = map.get(((ArrowToken) token).getArrowType());
-            i1 = paint(graphics, bytes, i1, j1);
+            x = paint(graphics, bytes, x, offset);
         }
         else
         {
@@ -736,23 +711,49 @@ public class Matrix
                     bytes = map.get("?");
                 }
 
-                i1 = paint(graphics, bytes, i1, j1);
+                x = paint(graphics, bytes, x, offset);
             }
         }
 
-        i1 += (this.gap * (this.hGap + this.dotWidth));
+        x += (this.gap * (this.hGap + this.dotWidth));
 
-        return i1;
+        return x;
+    }
+
+    /**
+     * @param graphics {@link Graphics}
+     * @param width int
+     * @param height int
+     */
+    public void paintDots(final Graphics graphics, final int width, final int height)
+    {
+        graphics.setColor(this.backgroundColor);
+        graphics.fillRect(0, 0, width, height);
+        graphics.setColor(this.dotOffColor);
+
+        for (int y = 0; y < height; y += this.dotHeight)
+        {
+            graphics.fillRect(0, y, width, this.dotHeight);
+            y += this.vGap;
+        }
+
+        graphics.setColor(this.backgroundColor);
+
+        for (int x = this.dotWidth; x < width; x += this.dotWidth)
+        {
+            graphics.fillRect(x, 0, this.hGap, height);
+            x += this.hGap;
+        }
     }
 
     /**
      * Sets the location of the element on the display when the display area is larger than the element.
      *
-     * @param newValue int
+     * @param anchor int
      */
-    public void setAnchor(final int newValue)
+    public void setAnchor(final int anchor)
     {
-        this.anchor = newValue;
+        this.anchor = anchor;
     }
 
     /**
@@ -807,10 +808,10 @@ public class Matrix
      */
     public void setPadding(final int top, final int left, final int bottom, final int right)
     {
-        this.top = top;
-        this.left = left;
-        this.bottom = bottom;
-        this.right = right;
+        this.topInset = top;
+        this.leftInset = left;
+        this.bottomInset = bottom;
+        this.rightInset = right;
     }
 
     /**

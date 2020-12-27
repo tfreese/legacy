@@ -4,9 +4,9 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComponent;
-import net.led.demo.tokens.TextToken;
 import net.led.elements.Element;
 import net.led.elements.Token;
+import net.led.tokens.TextToken;
 
 /**
  * @author Thomas Freese
@@ -99,9 +99,9 @@ public class DefaultLedTicker implements LedTicker
     @Override
     public void addElement(final Element tickerelement)
     {
-        ImageProvider c1 = new ImageProvider(tickerelement, this.matrix, this.ledPanel);
-        this.elements.add(c1);
-        this.ledPanel.b(c1.getImage(), c1.getObject());
+        ImageProvider imageProvider = new ImageProvider(tickerelement, this.matrix, this.ledPanel);
+        this.elements.add(imageProvider);
+        this.ledPanel.repaint(imageProvider.getImage(), imageProvider.getObject());
     }
 
     /**
@@ -142,15 +142,15 @@ public class DefaultLedTicker implements LedTicker
     {
         for (int i = 0; i < this.elements.size(); i++)
         {
-            ImageProvider c1 = this.elements.get(i);
+            ImageProvider imageProvider = this.elements.get(i);
 
-            if (c1.getElement() != tickerelement)
+            if (imageProvider.getElement() != tickerelement)
             {
                 continue;
             }
 
-            this.ledPanel.b(c1.getObject());
-            this.elements.remove(c1);
+            this.ledPanel.b(imageProvider.getObject());
+            this.elements.remove(imageProvider);
 
             break;
         }
@@ -171,10 +171,11 @@ public class DefaultLedTicker implements LedTicker
      * @see net.ledticker.LedTicker#setDotGaps(int, int)
      */
     @Override
-    public void setDotGaps(final int i, final int j)
+    public void setDotGaps(final int hGap, final int vGap)
     {
-        this.matrix.setDotGaps(i, j);
+        this.matrix.setDotGaps(hGap, vGap);
         this.ledPanel.setHeight(this.matrix.getHeigth());
+
         updateAll();
     }
 
@@ -194,9 +195,9 @@ public class DefaultLedTicker implements LedTicker
      * @see net.ledticker.LedTicker#setDotSize(int, int)
      */
     @Override
-    public void setDotSize(final int i, final int j)
+    public void setDotSize(final int dotWidth, final int dotHeight)
     {
-        this.matrix.setDotSize(i, j);
+        this.matrix.setDotSize(dotWidth, dotHeight);
         this.ledPanel.setHeight(this.matrix.getHeigth());
 
         updateAll();
@@ -206,9 +207,9 @@ public class DefaultLedTicker implements LedTicker
      * @see net.ledticker.LedTicker#setElementGap(int)
      */
     @Override
-    public void setElementGap(final int i)
+    public void setElementGap(final int elementGap)
     {
-        this.matrix.setElementGap(i);
+        this.matrix.setElementGap(elementGap);
 
         updateAll();
     }
@@ -217,15 +218,15 @@ public class DefaultLedTicker implements LedTicker
      * @see net.ledticker.LedTicker#setSpeed(int)
      */
     @Override
-    public void setSpeed(final int i)
+    public void setSpeed(final int speed)
     {
-        if ((i >= 1) && (i <= 10))
+        if ((speed >= 1) && (speed <= 10))
         {
-            this.ledPanel.setSpeed(13 - i);
+            this.ledPanel.setSpeed(13 - speed);
         }
         else
         {
-            throw new IllegalArgumentException("Unsupported speed (" + i + "). Speed must be between 1 and 10.");
+            throw new IllegalArgumentException("Unsupported speed (" + speed + "). Speed must be between 1 and 10.");
         }
     }
 
@@ -233,9 +234,9 @@ public class DefaultLedTicker implements LedTicker
      * @see net.ledticker.LedTicker#setTokenGap(int)
      */
     @Override
-    public void setTokenGap(final int i)
+    public void setTokenGap(final int tokenGap)
     {
-        this.matrix.setTokenGap(i);
+        this.matrix.setTokenGap(tokenGap);
 
         updateAll();
     }
@@ -264,12 +265,12 @@ public class DefaultLedTicker implements LedTicker
     @Override
     public void update(final Element tickerelement)
     {
-        for (ImageProvider c1 : this.elements)
+        for (ImageProvider imageProvider : this.elements)
         {
-            if (c1.getElement() == tickerelement)
+            if (imageProvider.getElement() == tickerelement)
             {
-                c1.createImage();
-                this.ledPanel.b(c1.getImage(), c1.getObject());
+                imageProvider.createImage();
+                this.ledPanel.repaint(imageProvider.getImage(), imageProvider.getObject());
 
                 return;
             }
@@ -287,10 +288,10 @@ public class DefaultLedTicker implements LedTicker
         this.ledPanel.b(true);
         this.ledPanel.b(this.matrix.getImage());
 
-        for (ImageProvider c1 : this.elements)
+        for (ImageProvider imageProvider : this.elements)
         {
-            c1.createImage();
-            this.ledPanel.b(c1.getImage(), c1.getObject());
+            imageProvider.createImage();
+            this.ledPanel.repaint(imageProvider.getImage(), imageProvider.getObject());
         }
 
         this.ledPanel.b(false);

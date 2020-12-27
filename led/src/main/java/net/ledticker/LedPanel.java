@@ -38,17 +38,12 @@ public class LedPanel extends JPanel implements Runnable
     /**
      *
      */
-    private volatile boolean pause;
+    private Dimension dimension;
 
     /**
      *
      */
     protected byte e;
-
-    /**
-     *
-     */
-    private Dimension dimension;
 
     /**
      *
@@ -79,6 +74,11 @@ public class LedPanel extends JPanel implements Runnable
      *
      */
     private Map<Object, A> o;
+
+    /**
+     *
+     */
+    private volatile boolean pause;
 
     /**
      *
@@ -132,58 +132,6 @@ public class LedPanel extends JPanel implements Runnable
     public void b(final Image image)
     {
         this.image = image;
-    }
-
-    /**
-     * @param image {@link Image}
-     * @param obj Object
-     */
-    public void b(final Image image, final Object obj)
-    {
-        A a = this.o.get(obj);
-
-        synchronized (this.n)
-        {
-            if (a == null)
-            {
-                a = new A();
-                this.o.put(obj, a);
-                this.n.add(a);
-                a.b(image, true);
-            }
-            else if (a.b() == image.getWidth(null))
-            {
-                a.b(image, true);
-            }
-            else
-            {
-                boolean flag = this.i;
-                int i1 = (this.n.get(0)).c();
-                int j1 = getWidth();
-                int k1 = 0;
-
-                for (int l1 = this.n.size(); (k1 < l1) && (i1 < j1) && !flag; k1++)
-                {
-                    A a1 = this.n.get(k1);
-
-                    if (a1 == a)
-                    {
-                        flag = true;
-
-                        break;
-                    }
-
-                    i1 += a1.b();
-                }
-
-                a.b(image, flag);
-            }
-        }
-
-        if ((this.thread == null) || this.pause)
-        {
-            repaint();
-        }
     }
 
     /**
@@ -341,6 +289,58 @@ public class LedPanel extends JPanel implements Runnable
     public void pauseAnimation()
     {
         this.pause = !this.pause;
+    }
+
+    /**
+     * @param image {@link Image}
+     * @param obj Object
+     */
+    public void repaint(final Image image, final Object obj)
+    {
+        A a = this.o.get(obj);
+
+        synchronized (this.n)
+        {
+            if (a == null)
+            {
+                a = new A();
+                this.o.put(obj, a);
+                this.n.add(a);
+                a.b(image, true);
+            }
+            else if (a.b() == image.getWidth(null))
+            {
+                a.b(image, true);
+            }
+            else
+            {
+                boolean flag = this.i;
+                int i1 = (this.n.get(0)).c();
+                int j1 = getWidth();
+                int k1 = 0;
+
+                for (int l1 = this.n.size(); (k1 < l1) && (i1 < j1) && !flag; k1++)
+                {
+                    A a1 = this.n.get(k1);
+
+                    if (a1 == a)
+                    {
+                        flag = true;
+
+                        break;
+                    }
+
+                    i1 += a1.b();
+                }
+
+                a.b(image, flag);
+            }
+        }
+
+        if ((this.thread == null) || this.pause)
+        {
+            repaint();
+        }
     }
 
     /**

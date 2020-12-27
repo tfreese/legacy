@@ -1,4 +1,4 @@
-package net.led.demo.tokens;
+package net.led.tokens;
 
 import net.led.elements.ColorModel;
 import net.led.elements.Token;

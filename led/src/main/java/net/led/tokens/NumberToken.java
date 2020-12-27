@@ -1,4 +1,4 @@
-package net.led.demo.tokens;
+package net.led.tokens;
 
 import java.text.NumberFormat;
 import java.util.Locale;

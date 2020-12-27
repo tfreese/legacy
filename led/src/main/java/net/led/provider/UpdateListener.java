@@ -1,8 +1,9 @@
-package net.led.demo.provider;
+package net.led.provider;
 
 /**
  * @author Thomas Freese
  */
+@FunctionalInterface
 public interface UpdateListener
 {
     /**

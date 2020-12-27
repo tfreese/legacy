@@ -1,4 +1,4 @@
-package net.led.demo.util;
+package net.led.util;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -25,7 +25,7 @@ public class ColorSelectorPanel extends JPanel implements ActionListener
     /**
     *
     */
-    private Color color = Color.white;
+    private Color color = Color.WHITE;
 
     /**
     *

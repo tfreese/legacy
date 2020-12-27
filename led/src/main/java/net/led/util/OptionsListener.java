@@ -1,4 +1,4 @@
-package net.led.demo.util;
+package net.led.util;
 
 /**
  * @author Thomas Freese

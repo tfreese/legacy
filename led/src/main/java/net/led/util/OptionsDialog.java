@@ -1,4 +1,4 @@
-package net.led.demo.util;
+package net.led.util;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -39,12 +39,12 @@ public class OptionsDialog extends JDialog implements ActionListener
     /**
      *
      */
-    private List currentSymbols = null;
+    private List currentSymbols;
 
     /**
      *
      */
-    private OptionsListener listener = null;
+    private OptionsListener listener;
 
     /**
      *
@@ -102,6 +102,7 @@ public class OptionsDialog extends JDialog implements ActionListener
     {
         String symbol = this.symbolField.getText().toUpperCase().trim();
         this.symbolField.setText("");
+
         if ((symbol != null) && !symbol.equals(""))
         {
             this.currentSymbols.add(symbol);
@@ -130,6 +131,7 @@ public class OptionsDialog extends JDialog implements ActionListener
         closeButton.addActionListener(this);
 
         getContentPane().setLayout(new GridBagLayout());
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;

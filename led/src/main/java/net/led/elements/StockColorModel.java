@@ -1,7 +1,6 @@
-package net.led.demo.elements;
+package net.led.elements;
 
 import java.awt.Color;
-import net.led.elements.ColorModel;
 
 /**
  * @author Thomas Freese

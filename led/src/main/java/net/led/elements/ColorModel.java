@@ -10,10 +10,10 @@ public interface ColorModel
     /**
      * @return {@link Color}
      */
-    public abstract Color getColor();
+    public Color getColor();
 
     /**
      * @param color {@link Color}
      */
-    public abstract void setColor(Color color);
+    public void setColor(Color color);
 }
