@@ -5,9 +5,9 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
-import net.led.elements.ArrowToken;
 import net.led.elements.Element;
-import net.led.elements.Token;
+import net.led.tokens.ArrowToken;
+import net.led.tokens.Token;
 
 /**
  * @author Thomas Freese

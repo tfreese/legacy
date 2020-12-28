@@ -1,5 +1,7 @@
 package net.led.elements;
 
+import net.led.tokens.Token;
+
 /**
  * Abstract implementation of the {@overload.ledticker.elements.TickerElement } interface
  */

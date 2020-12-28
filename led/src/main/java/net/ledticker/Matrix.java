@@ -6,9 +6,9 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
-import net.led.elements.ArrowToken;
 import net.led.elements.Element;
-import net.led.elements.Token;
+import net.led.tokens.ArrowToken;
+import net.led.tokens.Token;
 
 /**
  * @author Thomas Freese
@@ -612,16 +612,42 @@ public class Matrix
 
     /**
      * @param graphics {@link Graphics}
+     * @param width int
+     * @param height int
+     */
+    public void paintDots(final Graphics graphics, final int width, final int height)
+    {
+        graphics.setColor(this.backgroundColor);
+        graphics.fillRect(0, 0, width, height);
+        graphics.setColor(this.dotOffColor);
+
+        for (int y = 0; y < height; y += this.dotHeight)
+        {
+            graphics.fillRect(0, y, width, this.dotHeight);
+            y += this.vGap;
+        }
+
+        graphics.setColor(this.backgroundColor);
+
+        for (int x = this.dotWidth; x < width; x += this.dotWidth)
+        {
+            graphics.fillRect(x, 0, this.hGap, height);
+            x += this.hGap;
+        }
+    }
+
+    /**
+     * @param graphics {@link Graphics}
      * @param tickerelement {@link Element}
      */
-    public void paint(final Graphics graphics, final Element tickerelement)
+    public void paintElement(final Graphics graphics, final Element tickerelement)
     {
         Token[] tokens = tickerelement.getTokens();
         int x = 0;
 
         for (Token token : tokens)
         {
-            x = paint(graphics, token, x);
+            x = paintToken(graphics, token, x);
         }
     }
 
@@ -631,7 +657,7 @@ public class Matrix
      * @param x int
      * @return int
      */
-    private int paint(final Graphics graphics, final Token token, int x)
+    private int paintToken(final Graphics graphics, final Token token, int x)
     {
         Color color = token.getColorModel().getColor();
         graphics.setColor(color);
@@ -661,32 +687,6 @@ public class Matrix
         x += (this.tokenGap * (this.hGap + this.dotWidth));
 
         return x;
-    }
-
-    /**
-     * @param graphics {@link Graphics}
-     * @param width int
-     * @param height int
-     */
-    public void paintDots(final Graphics graphics, final int width, final int height)
-    {
-        graphics.setColor(this.backgroundColor);
-        graphics.fillRect(0, 0, width, height);
-        graphics.setColor(this.dotOffColor);
-
-        for (int y = 0; y < height; y += this.dotHeight)
-        {
-            graphics.fillRect(0, y, width, this.dotHeight);
-            y += this.vGap;
-        }
-
-        graphics.setColor(this.backgroundColor);
-
-        for (int x = this.dotWidth; x < width; x += this.dotWidth)
-        {
-            graphics.fillRect(x, 0, this.hGap, height);
-            x += this.hGap;
-        }
     }
 
     /**

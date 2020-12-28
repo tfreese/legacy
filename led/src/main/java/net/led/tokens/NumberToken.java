@@ -3,7 +3,6 @@ package net.led.tokens;
 import java.text.NumberFormat;
 import java.util.Locale;
 import net.led.elements.ColorModel;
-import net.led.elements.Token;
 
 /**
  * A token representing a number
@@ -104,7 +103,7 @@ public class NumberToken extends Token
     /**
      * Gets the representation of the number
      *
-     * @see net.led.elements.Token#getDisplayValue()
+     * @see net.led.tokens.Token#getDisplayValue()
      */
     @Override
     public String getDisplayValue()
@@ -132,7 +131,7 @@ public class NumberToken extends Token
     /**
      * Sets the value of the token
      *
-     * @see net.led.elements.Token#setValue(java.lang.Object)
+     * @see net.led.tokens.Token#setValue(java.lang.Object)
      * @throws IllegalArgumentException if the given value is not a <tt>Number</tt>
      */
     @Override

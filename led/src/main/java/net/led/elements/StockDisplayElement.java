@@ -1,8 +1,10 @@
 package net.led.elements;
 
 import java.awt.Color;
+import net.led.tokens.ArrowToken;
 import net.led.tokens.NumberToken;
 import net.led.tokens.TextToken;
+import net.led.tokens.Token;
 
 /**
  * This is a sample element that extends <code>AbstractDisplayElement</code> - the abstrat class that represents a display's text base element.

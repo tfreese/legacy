@@ -1,7 +1,6 @@
 package net.led.tokens;
 
 import net.led.elements.ColorModel;
-import net.led.elements.Token;
 
 /**
  * A token representing a line of text
@@ -47,7 +46,7 @@ public class TextToken extends Token
     }
 
     /**
-     * @see net.led.elements.Token#getDisplayValue()
+     * @see net.led.tokens.Token#getDisplayValue()
      */
     @Override
     public String getDisplayValue()
@@ -56,7 +55,7 @@ public class TextToken extends Token
     }
 
     /**
-     * @see net.led.elements.Token#setValue(java.lang.Object)
+     * @see net.led.tokens.Token#setValue(java.lang.Object)
      */
     @Override
     public void setValue(final Object value)

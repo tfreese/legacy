@@ -2,6 +2,7 @@ package net.led.elements;
 
 import java.awt.Color;
 import net.led.tokens.TextToken;
+import net.led.tokens.Token;
 
 /**
  * @author Thomas Freese

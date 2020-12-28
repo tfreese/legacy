@@ -1,4 +1,7 @@
-package net.led.elements;
+package net.led.tokens;
+
+import net.led.elements.ColorModel;
+import net.led.elements.DefaultColorModel;
 
 /**
  * @author Thomas Freese

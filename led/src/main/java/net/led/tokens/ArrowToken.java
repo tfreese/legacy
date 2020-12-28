@@ -1,4 +1,6 @@
-package net.led.elements;
+package net.led.tokens;
+
+import net.led.elements.ColorModel;
 
 /**
  * @author Thomas Freese
@@ -56,7 +58,7 @@ public final class ArrowToken extends Token
     }
 
     /**
-     * @see net.led.elements.Token#getDisplayValue()
+     * @see net.led.tokens.Token#getDisplayValue()
      */
     @Override
     public String getDisplayValue()
@@ -65,7 +67,7 @@ public final class ArrowToken extends Token
     }
 
     /**
-     * @see net.led.elements.Token#setValue(java.lang.Object)
+     * @see net.led.tokens.Token#setValue(java.lang.Object)
      */
     @Override
     public void setValue(final Object value)

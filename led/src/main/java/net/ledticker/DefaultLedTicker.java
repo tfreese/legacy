@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComponent;
 import net.led.elements.Element;
-import net.led.elements.Token;
 import net.led.tokens.TextToken;
+import net.led.tokens.Token;
 
 /**
  * @author Thomas Freese

@@ -1,5 +1,7 @@
 package net.led.elements;
 
+import net.led.tokens.Token;
+
 /**
  * @author Thomas Freese
  */
