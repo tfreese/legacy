@@ -64,7 +64,7 @@
 	</modules>
 
 	<profiles>
-		<profile>
+		<!--profile>
 			<id>windows-jre-tools.jar</id>
 			<activation>
 				<os>
@@ -83,10 +83,9 @@
 				</os>
 			</activation>
 			<properties>
-				<!--jar.tools>${env.JAVA_HOME}/lib/tools.jar</jar.tools -->
 				<jar.tools>/usr/lib/jvm/java-8-openjdk/lib/tools.jar</jar.tools>
 			</properties>
-		</profile>
+		</profile-->
 		<!--profile>
 			<activation>
 			<property>

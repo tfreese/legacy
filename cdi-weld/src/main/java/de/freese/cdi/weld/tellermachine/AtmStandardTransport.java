@@ -1,22 +1,12 @@
-/**
- * Created: 30.09.2012
- */
+// Created: 30.09.2012
 package de.freese.cdi.weld.tellermachine;
 
 /**
  * @author Thomas Freese
  */
-//@Default
+// @Default
 public class AtmStandardTransport implements ATMTransport
 {
-    /**
-     * Erstellt ein neues {@link AtmStandardTransport} Object.
-     */
-    public AtmStandardTransport()
-    {
-        super();
-    }
-
     /**
      * @see de.freese.cdi.weld.tellermachine.ATMTransport#communicateWithBank(byte[])
      */

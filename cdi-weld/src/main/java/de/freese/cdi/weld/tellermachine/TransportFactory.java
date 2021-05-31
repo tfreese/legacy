@@ -1,6 +1,4 @@
-/**
- * Created: 30.09.2012
- */
+// Created: 30.09.2012
 package de.freese.cdi.weld.tellermachine;
 
 import javax.enterprise.inject.Alternative;
@@ -13,14 +11,6 @@ import javax.enterprise.inject.Produces;
 public class TransportFactory
 {
     /**
-     * Erstellt ein neues {@link TransportFactory} Object.
-     */
-    public TransportFactory()
-    {
-        super();
-    }
-
-    /**
      * @return {@link ATMTransport}
      */
     @Produces
@@ -28,8 +18,8 @@ public class TransportFactory
     {
         System.out.println("ATMTransport created with producer");
 
-//        return new StandardAtmTransport();
-//        return new SoapAtmTransport();
+        // return new StandardAtmTransport();
+        // return new SoapAtmTransport();
         return new AtmJsonRestTransport();
     }
 }

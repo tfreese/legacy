@@ -75,13 +75,14 @@
 
     <dependencies>
         <!-- compile scope -->
-        <dependency>
+        <!-- Ist in den neueren JDKs direkt enthalten. -->
+        <!--dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
             <version>1.8</version>
             <scope>system</scope>
             <systemPath>${jar.tools}</systemPath>
-        </dependency>
+        </dependency-->
 
         <!-- runtime scope -->
         <!-- provided scope -->

@@ -1,22 +1,12 @@
-/**
- * Created: 30.09.2012
- */
+// Created: 30.09.2012
 package de.freese.cdi.weld.tellermachine;
 
 /**
  * @author Thomas Freese
  */
-//@Alternative
+// @Alternative
 public class AtmSoapTransport implements ATMTransport
 {
-    /**
-     * Erstellt ein neues {@link AtmSoapTransport} Object.
-     */
-    public AtmSoapTransport()
-    {
-        super();
-    }
-
     /**
      * @see de.freese.cdi.weld.tellermachine.ATMTransport#communicateWithBank(byte[])
      */

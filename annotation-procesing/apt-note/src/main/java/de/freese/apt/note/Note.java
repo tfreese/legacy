@@ -1,7 +1,4 @@
-/**
- * Created: 05.12.2011
- */
-
+// Created: 05.12.2011
 package de.freese.apt.note;
 
 import java.lang.annotation.Documented;
@@ -17,12 +14,12 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(
 {
-		ElementType.TYPE, ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.FIELD
+        ElementType.TYPE, ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.FIELD
 })
 public @interface Note
 {
-	/**
-	 * @return String
-	 */
-	String value();
+    /**
+     * @return String
+     */
+    String value();
 }

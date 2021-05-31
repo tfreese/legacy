@@ -5,6 +5,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -40,9 +41,6 @@ public class Velocity
 
         try
         {
-            /*
-             * setup
-             */
             Properties properties = new Properties();
             properties.put("resource.loaders", "classpath");
             properties.put("resource.loader.classpath.description", "Velocity Classpath Resource Loader");
@@ -75,13 +73,13 @@ public class Velocity
             {
                 template = ve.getTemplate(templateFile);
             }
-            catch (ResourceNotFoundException rnfe)
+            catch (ResourceNotFoundException ex)
             {
                 System.err.println("Example : error : cannot find template " + templateFile);
             }
-            catch (ParseErrorException pee)
+            catch (ParseErrorException ex)
             {
-                System.err.println("Example : Syntax error in template " + templateFile + ":" + pee);
+                System.err.println("Example : Syntax error in template " + templateFile + ":" + ex);
             }
 
             /*
@@ -105,15 +103,5 @@ public class Velocity
         {
             System.err.println(ex);
         }
-    }
-
-    /**
-     * Erstellt ein neues {@link Velocity} Object.
-     *
-     * @param templateFile String
-     */
-    public Velocity(final String templateFile)
-    {
-        super();
     }
 }

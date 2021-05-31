@@ -1,6 +1,4 @@
-/**
- * Created: 30.09.2012
- */
+// Created: 30.09.2012
 package de.freese.cdi.weld.tellermachine;
 
 import javax.inject.Inject;
@@ -16,14 +14,6 @@ public class AutomatedTellerMachineImpl implements AutomatedTellerMachine
      *
      */
     private ATMTransport transport = null;
-
-    /**
-     * Erstellt ein neues {@link AutomatedTellerMachineImpl} Object.
-     */
-    public AutomatedTellerMachineImpl()
-    {
-        super();
-    }
 
     /**
      * @see de.freese.cdi.weld.tellermachine.AutomatedTellerMachine#deposit(float)

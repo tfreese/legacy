@@ -1,6 +1,4 @@
-/**
- * Created: 30.09.2012
- */
+// Created: 30.09.2012
 package de.freese.cdi.weld.tellermachine;
 
 /**

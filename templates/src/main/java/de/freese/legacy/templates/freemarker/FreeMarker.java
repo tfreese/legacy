@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.Version;
@@ -41,7 +42,7 @@ public class FreeMarker
         try
         {
 
-            Configuration cfg = new Configuration(new Version("2.3.0"));
+            Configuration cfg = new Configuration(new Version("2.3.31"));
             // cfg.setTemplateLoader(new FileTemplateLoader(new File(".")));
             // cfg.setTemplateLoader(new ClassTemplateLoader(FreeMarker.class, ""));
             cfg.setDirectoryForTemplateLoading(new File("src/main/resources/templates/freemarker"));
@@ -67,15 +68,5 @@ public class FreeMarker
         {
             System.err.println(ex);
         }
-    }
-
-    /**
-     * Erstellt ein neues {@link FreeMarker} Object.
-     *
-     * @param templateFile String
-     */
-    public FreeMarker(final String templateFile)
-    {
-        super();
     }
 }

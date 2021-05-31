@@ -1,6 +1,4 @@
-/**
- * Created: 05.12.2011
- */
+// Created: 05.12.2011
 package de.freese.apt.note;
 
 import com.sun.mirror.apt.AnnotationProcessor;

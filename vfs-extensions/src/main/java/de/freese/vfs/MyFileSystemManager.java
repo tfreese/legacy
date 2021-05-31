@@ -6,6 +6,7 @@ package de.freese.vfs;
 import java.io.File;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
+
 import org.apache.commons.vfs2.FileSystemException;
 import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.impl.DefaultFileReplicator;
@@ -49,14 +50,6 @@ class MyFileSystemManager extends DefaultFileSystemManager
         // sb.append(File.separator);
 
         return sb.toString();
-    }
-
-    /**
-     * Erstellt ein neues {@link MyFileSystemManager} Objekt.
-     */
-    public MyFileSystemManager()
-    {
-        super();
     }
 
     /**

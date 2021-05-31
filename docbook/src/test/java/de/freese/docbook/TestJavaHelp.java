@@ -1,12 +1,10 @@
-/**
- * Created: 28.06.2012
- */
-
+// Created: 28.06.2012
 package de.freese.docbook;
 
 import java.io.File;
 import java.net.URL;
 import java.net.URLClassLoader;
+
 import javax.help.HelpSet;
 import javax.help.JHelp;
 import javax.swing.JFrame;
@@ -25,14 +23,6 @@ public class TestJavaHelp
     {
         TestJavaHelp test = new TestJavaHelp();
         test.testJavaDoc2();
-    }
-
-    /**
-     * Erstellt ein neues {@link TestJavaHelp} Object.
-     */
-    public TestJavaHelp()
-    {
-        super();
     }
 
     /**
